@@ -57,11 +57,11 @@ export default function Datenschutz() {
               Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
             </p>
             <p className="mb-4">
-              SafetyFirst GmbH<br />
+              Protect Arbeitssicherheit & Gesundheitsschutz GmbH<br />
               Musterstraße 123<br />
               12345 Musterstadt<br />
               Telefon: +49 123 456 789 00<br />
-              E-Mail: info@safetyfirst.de
+              E-Mail: info@asoplus.de
             </p>
 
             <h3 className="text-xl font-semibold mt-6 mb-3">Speicherdauer</h3>

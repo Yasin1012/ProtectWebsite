@@ -49,7 +49,7 @@ export default function Landing() {
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 md:px-6">
           <div className="flex items-center gap-2">
             <Shield className="h-8 w-8 text-primary" />
-            <span className="text-xl font-bold">SafetyFirst</span>
+            <span className="text-xl font-bold">Protect</span>
           </div>
           <a href="tel:+4912345678900" className="flex items-center gap-2 text-sm font-medium">
             <Phone className="h-4 w-4" />
@@ -158,7 +158,7 @@ export default function Landing() {
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <div className="flex items-center gap-2">
               <Shield className="h-5 w-5 text-primary" />
-              <span className="font-semibold">SafetyFirst GmbH</span>
+              <span className="font-semibold">Protect Arbeitssicherheit & Gesundheitsschutz GmbH</span>
             </div>
             <div className="flex gap-4 text-sm text-muted-foreground">
               <Link href="/impressum" className="hover:text-foreground" data-testid="link-landing-impressum">Impressum</Link>

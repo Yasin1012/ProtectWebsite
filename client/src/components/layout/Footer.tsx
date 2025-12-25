@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Heart } from "lucide-react";
 import protectLogo from "@assets/image_1766691843589.png";
 
 const services = [
@@ -78,9 +78,9 @@ export function Footer() {
                 <Phone className="h-4 w-4 shrink-0" />
                 <span>+49 123 456 789 00</span>
               </a>
-              <a href="mailto:info@protect-gmbh.de" className="flex items-center gap-2 transition-colors hover:text-foreground" data-testid="link-footer-email">
+              <a href="mailto:info@asoplus.de" className="flex items-center gap-2 transition-colors hover:text-foreground" data-testid="link-footer-email">
                 <Mail className="h-4 w-4 shrink-0" />
-                <span>info@protect-gmbh.de</span>
+                <span>info@asoplus.de</span>
               </a>
             </div>
           </div>
@@ -102,6 +102,20 @@ export function Footer() {
               </Link>
             ))}
           </nav>
+        </div>
+        <div className="mt-6 flex items-center justify-center gap-1 text-sm text-muted-foreground">
+          <span>Made with</span>
+          <Heart className="h-4 w-4 fill-red-500 text-red-500" />
+          <span>by</span>
+          <a 
+            href="#" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="font-medium transition-colors hover:text-foreground"
+            data-testid="link-datafusion"
+          >
+            Datafusion-IT
+          </a>
         </div>
       </div>
     </footer>

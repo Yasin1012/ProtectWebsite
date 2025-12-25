@@ -10,7 +10,7 @@ export default function Impressum() {
           <div className="prose prose-gray max-w-none dark:prose-invert">
             <h2 className="text-2xl font-semibold mt-8 mb-4">Angaben gemäß § 5 TMG</h2>
             <p className="mb-4">
-              SafetyFirst GmbH<br />
+              Protect Arbeitssicherheit & Gesundheitsschutz GmbH<br />
               Musterstraße 123<br />
               12345 Musterstadt
             </p>
@@ -23,7 +23,7 @@ export default function Impressum() {
             <h2 className="text-2xl font-semibold mt-8 mb-4">Kontakt</h2>
             <p className="mb-4">
               Telefon: +49 123 456 789 00<br />
-              E-Mail: info@safetyfirst.de
+              E-Mail: info@asoplus.de
             </p>
 
             <h2 className="text-2xl font-semibold mt-8 mb-4">Registereintrag</h2>

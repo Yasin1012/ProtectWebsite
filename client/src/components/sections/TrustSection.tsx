@@ -64,7 +64,7 @@ export function TrustSection() {
           transition={{ duration: 0.5 }}
         >
           <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl" data-testid="text-trust-title">
-            Warum SafetyFirst?
+            Warum Protect Arbeitssicherheit & Gesundheitsschutz?
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
             Vertrauen Sie auf unsere Erfahrung und Kompetenz in der Arbeitssicherheit.

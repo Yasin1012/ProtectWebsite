@@ -20,8 +20,11 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 md:px-6">
-        <Link href="/" className="flex items-center gap-2" data-testid="link-logo">
+        <Link href="/" className="flex items-center gap-3" data-testid="link-logo">
           <img src={protectLogo} alt="Protect GmbH" className="h-10 w-auto" />
+          <span className="hidden text-sm font-semibold leading-tight lg:block" data-testid="text-logo">
+            Protect Arbeitssicherheit<br />& Gesundheitsschutz
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex" data-testid="nav-desktop">

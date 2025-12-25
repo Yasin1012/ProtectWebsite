@@ -53,9 +53,9 @@ export function CTASection({
               <Phone className="h-4 w-4" />
               <span data-testid="text-phone-number">+49 123 456 789 00</span>
             </a>
-            <a href="mailto:info@safetyfirst.de" className="flex items-center gap-2 transition-colors hover:text-primary-foreground" data-testid="link-cta-email">
+            <a href="mailto:info@asoplus.de" className="flex items-center gap-2 transition-colors hover:text-primary-foreground" data-testid="link-cta-email">
               <Mail className="h-4 w-4" />
-              <span data-testid="text-email">info@safetyfirst.de</span>
+              <span data-testid="text-email">info@asoplus.de</span>
             </a>
           </div>
         )}
