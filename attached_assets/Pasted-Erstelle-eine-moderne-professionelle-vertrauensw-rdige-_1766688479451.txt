@@ -1,0 +1,213 @@
+Erstelle eine moderne, professionelle, vertrauenswürdige und SEO-optimierte Website für ein Unternehmen im Bereich Arbeitssicherheit.
+
+Ziel der Website ist:
+
+Neukundengewinnung (B2B)
+
+Vertrauensaufbau
+
+Klare Darstellung gesetzlich relevanter Leistungen
+
+Gute Auffindbarkeit bei Google (SEO-freundlich)
+
+🔹 Zielgruppe
+
+Kleine und mittelständische Unternehmen
+
+Handwerksbetriebe
+
+Industrie & Gewerbe
+
+Geschäftsführer, Betriebsleiter, HR, Sicherheitsbeauftragte
+
+🔹 Design & Stil
+
+Seriös, sachlich, professionell
+
+Klare Struktur, gute Lesbarkeit
+
+Modernes B2B-Design
+
+Keine verspielten Elemente
+
+Mobile-First
+
+Schnelle Ladezeiten
+
+DSGVO-konform
+
+Farbstil:
+
+Vertrauensfarben (Blau, Grau, Dunkelgrün, Weiß)
+
+Klare Kontraste
+
+Technisch & kompetent wirkend
+
+🔹 Seitenstruktur (Pflicht)
+1️⃣ Startseite
+
+Klarer Hero-Bereich mit Nutzenversprechen
+
+Kurze Erklärung: Wer wir sind & was wir tun
+
+Überblick über alle Leistungen
+
+Vertrauenselemente (Erfahrung, gesetzliche Grundlagen, Zuverlässigkeit)
+
+Call-to-Action („Beratung anfragen“, „Kontakt aufnehmen“)
+
+2️⃣ Leistungen (jede Leistung eigene Unterseite!)
+a) Sicherheitstechnische Betreuung gemäß DGUV V2
+
+Erklärung der gesetzlichen Grundlage
+
+Für wen die Leistung relevant ist
+
+Vorteile für Unternehmen
+
+Klare, verständliche Sprache
+
+b) Betriebsmittelprüfungen
+
+Was wird geprüft
+
+Warum es gesetzlich notwendig ist
+
+Nutzen & Sicherheit für Betriebe
+
+c) Aus- und Fortbildungen
+
+Schulungen für Mitarbeiter
+
+Gesetzliche Relevanz
+
+Praxisorientierter Ansatz
+
+d) Brandschutz
+
+Brandschutzkonzepte
+
+Prävention
+
+Gesetzliche Anforderungen
+
+e) Elektrische Geräteprüfung
+
+Prüfung nach geltenden Normen
+
+Sicherheit & Haftungsvermeidung
+
+Regelmäßigkeit & Dokumentation
+
+➡️ Jede Leistungsseite:
+
+SEO-optimierte Überschriften (H1–H3)
+
+Klare Vorteile
+
+Call-to-Action
+
+3️⃣ Team-Seite
+
+Vorstellung des Teams
+
+Qualifikationen
+
+Kompetenz & Erfahrung
+
+Vertrauensaufbau
+
+4️⃣ Netzwerk-Seite
+
+Partner & Kooperationen
+
+Fachnetzwerke
+
+Zusammenarbeit mit anderen Experten
+
+5️⃣ Kontakt-Seite
+
+Kontaktformular
+
+Klare Aufforderung zur Anfrage
+
+Seriöser, vertrauensvoller Ton
+
+6️⃣ Landing Page
+
+Conversion-optimiert
+
+Fokus auf eine Handlung (Beratung / Anfrage)
+
+Kein Ablenken
+
+Klare Vorteile
+
+Starkes Nutzenversprechen
+
+7️⃣ Rechtliches
+
+Impressum
+
+Datenschutzerklärung
+
+🔹 SEO-Anforderungen (sehr wichtig)
+
+SEO-freundliche URL-Struktur
+
+Saubere HTML-Semantik
+
+Optimierte Meta-Titles & Meta-Descriptions
+
+Branchen-Keywords wie:
+
+Arbeitssicherheit Unternehmen
+
+Sicherheitstechnische Betreuung DGUV V2
+
+Betriebsmittelprüfung
+
+Elektrische Geräteprüfung
+
+Brandschutz Unternehmen
+
+Schnelle Ladezeiten
+
+Mobile Optimierung
+
+Interne Verlinkung
+
+🔹 Inhalte & Texte
+
+Fachlich korrekt
+
+Verständlich für Nicht-Experten
+
+Seriös & vertrauenswürdig
+
+Keine Marketing-Floskeln
+
+Deutsch (Sie-Form)
+
+🔹 Output-Erwartung
+
+Vollständige Seitenstruktur
+
+Fertige Textinhalte
+
+Vorschläge für Farben & Schriften
+
+Platzhalter für Bilder & Teamfotos
+
+SEO-optimierte Texte
+
+Wenn du willst, kann ich dir als Nächstes:
+
+🔹 SEO-Texte speziell für eure Region schreiben
+
+🔹 die Landing Page extrem conversion-stark formulieren
+
+🔹 das Prompt auf WordPress / Webflow / Framer zuschneiden
+
+🔹 oder eine 1-Seiten-Kurzversion für schnelle KI-Tools machen
