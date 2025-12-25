@@ -37,7 +37,7 @@ export function CTASection({
                 </Button>
               </Link>
               {showContactInfo && (
-                <a href="tel:+4912345678900" data-testid="link-cta-phone">
+                <a href="tel:+4971414881321" data-testid="link-cta-phone">
                   <Button 
                     size="lg" 
                     variant="outline"
@@ -52,13 +52,13 @@ export function CTASection({
             </div>
             {showContactInfo && (
               <div className="mt-8 flex flex-col items-center justify-center gap-4 text-muted-foreground sm:flex-row sm:gap-8">
-                <a href="tel:+4912345678900" className="flex items-center gap-2 transition-colors hover:text-foreground" data-testid="link-cta-phone-info">
+                <a href="tel:+4971414881321" className="flex items-center gap-2 transition-colors hover:text-foreground" data-testid="link-cta-phone-info">
                   <Phone className="h-4 w-4" />
-                  <span data-testid="text-phone-number">+49 123 456 789 00</span>
+                  <span data-testid="text-phone-number">07141 4881321</span>
                 </a>
-                <a href="mailto:info@asoplus.de" className="flex items-center gap-2 transition-colors hover:text-foreground" data-testid="link-cta-email">
+                <a href="mailto:info@protect-as.de" className="flex items-center gap-2 transition-colors hover:text-foreground" data-testid="link-cta-email">
                   <Mail className="h-4 w-4" />
-                  <span data-testid="text-email">info@asoplus.de</span>
+                  <span data-testid="text-email">info@protect-as.de</span>
                 </a>
               </div>
             )}

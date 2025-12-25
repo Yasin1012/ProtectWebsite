@@ -7,25 +7,25 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Telefon",
-    content: "+49 123 456 789 00",
-    link: "tel:+4912345678900",
+    content: "07141 4881321",
+    link: "tel:+4971414881321",
   },
   {
     icon: Mail,
     title: "E-Mail",
-    content: "info@asoplus.de",
-    link: "mailto:info@asoplus.de",
+    content: "info@protect-as.de",
+    link: "mailto:info@protect-as.de",
   },
   {
     icon: MapPin,
     title: "Adresse",
-    content: "Musterstraße 123\n12345 Musterstadt",
+    content: "Ludwigsburger Str. 85/2\n71696 Möglingen",
     link: null,
   },
   {
     icon: Clock,
     title: "Bürozeiten",
-    content: "Mo–Fr: 8:00–17:00 Uhr",
+    content: "Mo–Fr: 08:00–18:00 Uhr",
     link: null,
   },
 ];

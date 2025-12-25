@@ -72,15 +72,15 @@ export function Footer() {
             <div className="space-y-3 text-sm text-muted-foreground">
               <div className="flex items-start gap-2" data-testid="text-footer-address">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
-                <span>Musterstraße 123<br />12345 Musterstadt</span>
+                <span>Ludwigsburger Str. 85/2<br />71696 Möglingen</span>
               </div>
-              <a href="tel:+4912345678900" className="flex items-center gap-2 transition-colors hover:text-foreground" data-testid="link-footer-phone">
+              <a href="tel:+4971414881321" className="flex items-center gap-2 transition-colors hover:text-foreground" data-testid="link-footer-phone">
                 <Phone className="h-4 w-4 shrink-0" />
-                <span>+49 123 456 789 00</span>
+                <span>07141 4881321</span>
               </a>
-              <a href="mailto:info@asoplus.de" className="flex items-center gap-2 transition-colors hover:text-foreground" data-testid="link-footer-email">
+              <a href="mailto:info@protect-as.de" className="flex items-center gap-2 transition-colors hover:text-foreground" data-testid="link-footer-email">
                 <Mail className="h-4 w-4 shrink-0" />
-                <span>info@asoplus.de</span>
+                <span>info@protect-as.de</span>
               </a>
             </div>
           </div>

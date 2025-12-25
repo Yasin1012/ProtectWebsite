@@ -11,19 +11,19 @@ export default function Impressum() {
             <h2 className="text-2xl font-semibold mt-8 mb-4">Angaben gemäß § 5 TMG</h2>
             <p className="mb-4">
               Protect Arbeitssicherheit & Gesundheitsschutz GmbH<br />
-              Musterstraße 123<br />
-              12345 Musterstadt
+              Ludwigsburger Str. 85/2<br />
+              71696 Möglingen
             </p>
 
             <h2 className="text-2xl font-semibold mt-8 mb-4">Vertreten durch</h2>
             <p className="mb-4">
-              Geschäftsführer: Dr. Michael Weber
+              Geschäftsführer: Bernhard Decker
             </p>
 
             <h2 className="text-2xl font-semibold mt-8 mb-4">Kontakt</h2>
             <p className="mb-4">
-              Telefon: +49 123 456 789 00<br />
-              E-Mail: info@asoplus.de
+              Telefon: 07141 4881321<br />
+              E-Mail: info@protect-as.de
             </p>
 
             <h2 className="text-2xl font-semibold mt-8 mb-4">Registereintrag</h2>
@@ -59,9 +59,9 @@ export default function Impressum() {
 
             <h2 className="text-2xl font-semibold mt-8 mb-4">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
             <p className="mb-4">
-              Dr. Michael Weber<br />
-              Musterstraße 123<br />
-              12345 Musterstadt
+              Bernhard Decker<br />
+              Ludwigsburger Str. 85/2<br />
+              71696 Möglingen
             </p>
 
             <h2 className="text-2xl font-semibold mt-8 mb-4">Streitschlichtung</h2>
