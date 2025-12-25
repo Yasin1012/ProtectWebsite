@@ -285,4 +285,22 @@
   .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
     inset: -1px;
   }
+
+  /* Logo carousel infinite scroll animation */
+  .logo-carousel-track {
+    animation: logo-scroll 30s linear infinite;
+  }
+
+  .logo-carousel-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes logo-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
 }
