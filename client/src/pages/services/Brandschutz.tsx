@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { Layout } from "@/components/layout/Layout";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CTASection } from "@/components/sections/CTASection";
 import { 
@@ -11,49 +11,31 @@ import {
   Map,
   ShieldAlert,
   ArrowRight,
-  AlertTriangle
+  Wrench,
+  BookOpen
 } from "lucide-react";
+import brandschutzImage from "@assets/pexels-pixabay-69934_1766690620946.jpg";
 
-const leistungen = [
-  {
-    icon: FileText,
-    title: "Brandschutzordnung",
-    description: "Erstellung und Aktualisierung der Brandschutzordnung Teil A, B und C für Ihr Unternehmen.",
-  },
-  {
-    icon: Map,
-    title: "Flucht- und Rettungspläne",
-    description: "Erstellung normgerechter Flucht- und Rettungspläne nach DIN ISO 23601.",
-  },
-  {
-    icon: Users,
-    title: "Brandschutzhelfer-Ausbildung",
-    description: "Ausbildung Ihrer Mitarbeiter zu Brandschutzhelfern nach ASR A2.2 mit praktischen Übungen.",
-  },
-  {
-    icon: ShieldAlert,
-    title: "Brandschutzunterweisungen",
-    description: "Regelmäßige Unterweisungen aller Mitarbeiter zum Verhalten im Brandfall.",
-  },
-  {
-    icon: AlertTriangle,
-    title: "Evakuierungsübungen",
-    description: "Planung und Durchführung von Räumungsübungen zur Überprüfung Ihrer Notfallkonzepte.",
-  },
-  {
-    icon: Flame,
-    title: "Brandschutzbegehungen",
-    description: "Regelmäßige Kontrolle der Brandschutzeinrichtungen und Dokumentation.",
-  },
+const ausstattungTechnik = [
+  "Handfeuerlöscher",
+  "Fahrbare Löschgeräte",
+  "Feuerlöscher-Wartungsservice nach DIN 14406",
 ];
 
-const pflichten = [
-  "Bestellung eines Brandschutzbeauftragten (je nach Betriebsgröße und -art)",
-  "Ausbildung von mindestens 5% der Beschäftigten zu Brandschutzhelfern",
-  "Erstellung einer Brandschutzordnung",
-  "Regelmäßige Unterweisung aller Beschäftigten",
-  "Freihaltung und Kennzeichnung von Flucht- und Rettungswegen",
-  "Bereitstellung und Wartung von Feuerlöschern",
+const schulungenUnterweisungen = [
+  "Brandschutzunterweisungen (rechtssicher & praxisnah)",
+  "Ausbildung von Brandschutzhelfern nach ASR A2.2",
+  "Ausbildung von Räumungs- und Evakuierungshelfern",
+  "Feuerlöschtrainings mit realitätsnahen Übungsszenarien",
+  "Durchführung und Auswertung von Evakuierungsübungen",
+];
+
+const dokumentationPlanung = [
+  "Brandschutzordnungen nach DIN 14096",
+  "Flucht- und Rettungspläne gemäß DIN 23601",
+  "Feuerwehrpläne nach DIN 14095",
+  "Gefährdungsbeurteilungen mit Fokus auf Brandrisiken",
+  "Externer Brandschutzbeauftragter inkl. Betreuung und Nachweisführung",
 ];
 
 export default function Brandschutz() {
@@ -68,30 +50,34 @@ export default function Brandschutz() {
                 Prävention & Konzepte
               </div>
               <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl" data-testid="text-brandschutz-title">
-                Brandschutz
+                Ganzheitlicher Brandschutz für Ihr Unternehmen
               </h1>
-              <p className="mb-6 text-lg text-muted-foreground">
-                Ganzheitliche Brandschutzbetreuung für Ihr Unternehmen. Von der 
-                Erstellung der Brandschutzordnung bis zur Ausbildung Ihrer 
-                Brandschutzhelfer bieten wir Ihnen alle Leistungen aus einer Hand.
+              <p className="mb-6 text-muted-foreground">
+                Brandschutz ist mehr als nur Pflicht – er ist ein zentraler Bestandteil 
+                eines sicheren und verantwortungsvoll geführten Unternehmens. Die 
+                gesetzlichen Anforderungen sind komplex und umfassen sowohl den 
+                vorbeugenden als auch den abwehrenden Brandschutz. Hinzu kommen wichtige 
+                Vorschriften der Versicherer und branchenspezifische Regelungen.
               </p>
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <Link href="/kontakt" data-testid="link-brandschutz-cta">
-                  <Button size="lg" data-testid="button-brandschutz-cta">
-                    Beratung anfragen
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </div>
+              <p className="mb-6 text-muted-foreground">
+                Damit Sie den Überblick behalten, stehen wir Ihnen als kompetenter 
+                Partner mit umfassender Beratung und praxiserprobten Lösungen zur Seite.
+              </p>
+              <Link href="/kontakt" data-testid="link-brandschutz-cta">
+                <Button size="lg" data-testid="button-brandschutz-cta">
+                  Beratung anfragen
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
             </div>
             <div className="flex items-center justify-center">
-              <div className="rounded-lg border bg-card p-8">
-                <h3 className="mb-4 text-lg font-semibold">Warum Brandschutz?</h3>
-                <p className="text-sm text-muted-foreground">
-                  Betrieblicher Brandschutz ist nicht nur gesetzliche Pflicht, sondern 
-                  schützt Ihre Mitarbeiter, Ihr Unternehmen und Ihre Werte. Ein Brand 
-                  kann existenzbedrohend sein – Prävention ist der beste Schutz.
-                </p>
+              <div className="overflow-hidden rounded-lg">
+                <img 
+                  src={brandschutzImage} 
+                  alt="Brandschutz" 
+                  className="h-auto w-full object-cover"
+                  data-testid="img-brandschutz-hero"
+                />
               </div>
             </div>
           </div>
@@ -100,39 +86,78 @@ export default function Brandschutz() {
 
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-4 md:px-6">
-          <h2 className="mb-8 text-center text-3xl font-bold">Unsere Leistungen</h2>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {leistungen.map((item, index) => (
-              <Card key={index} data-testid={`card-brandschutz-${index}`}>
-                <CardContent className="p-6">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                    <item.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="mb-2 text-lg font-semibold">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-muted/30 py-16 md:py-24">
-        <div className="mx-auto max-w-6xl px-4 md:px-6">
-          <div className="mx-auto max-w-3xl">
-            <h2 className="mb-6 text-center text-3xl font-bold">Gesetzliche Anforderungen</h2>
-            <p className="mb-8 text-center text-muted-foreground">
-              Der Arbeitgeber hat nach verschiedenen Vorschriften Pflichten im Brandschutz 
-              zu erfüllen. Wir unterstützen Sie bei der Umsetzung.
-            </p>
-            <div className="space-y-3">
-              {pflichten.map((item, index) => (
-                <div key={index} className="flex items-start gap-3 rounded-lg border bg-card p-4">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                  <span>{item}</span>
+          <h2 className="mb-8 text-center text-3xl font-bold">Unsere Leistungen im Überblick</h2>
+          <div className="grid gap-6 lg:grid-cols-3">
+            <Card>
+              <CardHeader>
+                <div className="flex items-center gap-2">
+                  <Wrench className="h-5 w-5 text-primary" />
+                  <CardTitle>Ausstattung & Technik</CardTitle>
                 </div>
-              ))}
-            </div>
+              </CardHeader>
+              <CardContent>
+                <p className="mb-4 text-sm text-muted-foreground">
+                  Wir beraten Sie bei der Auswahl, Anschaffung und Wartung von 
+                  Brandschutzausrüstung – passend zu Ihrem Unternehmen und den 
+                  geltenden Anforderungen:
+                </p>
+                <div className="space-y-2">
+                  {ausstattungTechnik.map((item, index) => (
+                    <div key={index} className="flex items-start gap-2" data-testid={`item-ausstattung-${index}`}>
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                      <span className="text-sm">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <div className="flex items-center gap-2">
+                  <Users className="h-5 w-5 text-primary" />
+                  <CardTitle>Schulungen & Unterweisungen</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="mb-4 text-sm text-muted-foreground">
+                  Gut geschulte Mitarbeitende sind im Ernstfall entscheidend. 
+                  Unsere Schulungen sind praxisnah, gesetzeskonform und auf Ihre 
+                  Branche abgestimmt:
+                </p>
+                <div className="space-y-2">
+                  {schulungenUnterweisungen.map((item, index) => (
+                    <div key={index} className="flex items-start gap-2" data-testid={`item-schulung-${index}`}>
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                      <span className="text-sm">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <div className="flex items-center gap-2">
+                  <FileText className="h-5 w-5 text-primary" />
+                  <CardTitle>Dokumentation & Planung</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="mb-4 text-sm text-muted-foreground">
+                  Wir erstellen für Sie alle erforderlichen Unterlagen und übernehmen 
+                  auf Wunsch die Funktion des externen Brandschutzbeauftragten:
+                </p>
+                <div className="space-y-2">
+                  {dokumentationPlanung.map((item, index) => (
+                    <div key={index} className="flex items-start gap-2" data-testid={`item-dokumentation-${index}`}>
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                      <span className="text-sm">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>

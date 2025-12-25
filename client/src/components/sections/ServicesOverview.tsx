@@ -1,14 +1,17 @@
 import { Link } from "wouter";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ShieldCheck, Wrench, GraduationCap, Flame, Zap } from "lucide-react";
 import arbeitssicherheitImage from "@assets/image_1766689624846.png";
 import arbeitsmittelImage from "@assets/image_1766689685291.png";
 import fortbildungImage from "@assets/image_1766690223127.png";
+import brandschutzImage from "@assets/pexels-pixabay-69934_1766690620946.jpg";
+import elektroImage from "@assets/yuriy-vertikov-bFjTqonnpK4-unsplash_1766690841497.jpg";
 
 const services = [
   {
     image: arbeitssicherheitImage,
+    icon: ShieldCheck,
     title: "Arbeitssicherheit",
     description: "Gesetzeskonforme Betreuung nach DGUV Vorschrift 2. Wir unterstützen Sie bei allen Fragen der Arbeitssicherheit.",
     href: "/leistungen/dguv-v2",
@@ -16,6 +19,7 @@ const services = [
   },
   {
     image: arbeitsmittelImage,
+    icon: Wrench,
     title: "Arbeitsmittelprüfung",
     description: "Regelmäßige Prüfung Ihrer Arbeitsmittel und Betriebseinrichtungen nach BetrSichV und DGUV Vorschriften.",
     href: "/leistungen/betriebsmittelpruefung",
@@ -23,10 +27,27 @@ const services = [
   },
   {
     image: fortbildungImage,
+    icon: GraduationCap,
     title: "Aus- und Fortbildungen",
     description: "Praxisnahe Schulungen für Ihre Mitarbeiter. Von Ersthelfer-Kursen bis zur Sicherheitsbeauftragten-Ausbildung.",
     href: "/leistungen/fortbildung",
     keywords: "Schulungen, Unterweisung",
+  },
+  {
+    image: brandschutzImage,
+    icon: Flame,
+    title: "Brandschutz",
+    description: "Ganzheitliche Brandschutzkonzepte, Flucht- und Rettungspläne sowie regelmäßige Brandschutzunterweisungen.",
+    href: "/leistungen/brandschutz",
+    keywords: "Brandschutzbeauftragter, Feuerlöscher",
+  },
+  {
+    image: elektroImage,
+    icon: Zap,
+    title: "Elektrische Geräteprüfung",
+    description: "Prüfung ortsveränderlicher elektrischer Betriebsmittel nach DGUV V3 und VDE-Vorschriften.",
+    href: "/leistungen/elektrische-pruefung",
+    keywords: "DGUV V3, E-Check, VDE",
   },
 ];
 
@@ -58,6 +79,9 @@ export function ServicesOverview() {
                 />
               </div>
               <CardHeader className="pb-2">
+                <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+                  <service.icon className="h-5 w-5 text-primary" />
+                </div>
                 <CardTitle className="text-xl">{service.title}</CardTitle>
                 <CardDescription className="text-sm text-muted-foreground">
                   {service.keywords}

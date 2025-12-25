@@ -7,6 +7,8 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import arbeitssicherheitImage from "@assets/image_1766689624846.png";
 import arbeitsmittelImage from "@assets/image_1766689685291.png";
 import fortbildungImage from "@assets/image_1766690223127.png";
+import brandschutzImage from "@assets/pexels-pixabay-69934_1766690620946.jpg";
+import elektroImage from "@assets/yuriy-vertikov-bFjTqonnpK4-unsplash_1766690841497.jpg";
 
 const services = [
   {
@@ -46,6 +48,32 @@ const services = [
       "Sicherheitsbeauftragte",
       "Wiederholungsschulungen",
       "Aktionstage & Spezialthemen",
+    ],
+  },
+  {
+    image: brandschutzImage,
+    title: "Brandschutz",
+    subtitle: "Prävention & Konzepte",
+    description: "Brandschutz ist mehr als nur Pflicht – er ist ein zentraler Bestandteil eines sicheren und verantwortungsvoll geführten Unternehmens.",
+    href: "/leistungen/brandschutz",
+    benefits: [
+      "Brandschutzordnungen nach DIN 14096",
+      "Flucht- und Rettungspläne",
+      "Brandschutzhelfer-Ausbildung",
+      "Externer Brandschutzbeauftragter",
+    ],
+  },
+  {
+    image: elektroImage,
+    title: "Elektrische Geräteprüfung",
+    subtitle: "DGUV Vorschrift 3",
+    description: "Elektrische Anlagen und Betriebsmittel zählen zu den größten Gefährdungspotenzialen. Wir prüfen nach DGUV V3 und DIN VDE.",
+    href: "/leistungen/elektrische-pruefung",
+    benefits: [
+      "Ortsveränderliche Betriebsmittel",
+      "Ortsfeste Anlagen",
+      "Ladestationen / Wallboxen",
+      "Digitale Dokumentation",
     ],
   },
 ];

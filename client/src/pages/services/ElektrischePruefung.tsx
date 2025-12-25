@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { Layout } from "@/components/layout/Layout";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CTASection } from "@/components/sections/CTASection";
 import { 
@@ -10,68 +10,72 @@ import {
   Shield,
   Clock,
   ArrowRight,
-  Tag
+  Phone,
+  MapPin,
+  FileText,
+  ClipboardCheck,
+  Eye
 } from "lucide-react";
+import elektroImage from "@assets/yuriy-vertikov-bFjTqonnpK4-unsplash_1766690841497.jpg";
 
-const pruefgeraete = [
-  "Computer, Laptops, Monitore",
-  "Drucker und Kopierer",
-  "Kaffeemaschinen und Wasserkocher",
-  "Verlängerungskabel und Mehrfachsteckdosen",
-  "Elektrowerkzeuge",
-  "Laborgeräte",
-  "Medizinische Geräte",
-  "Küchengeräte",
+const gesetzlicheGrundlagen = [
+  "§5 der Betriebssicherheitsverordnung (BetrSichV)",
+  "DIN VDE 0701-0702 (Ortsveränderliche Geräte)",
+  "DIN VDE 0105-100 (Ortsfeste Anlagen)",
+  "TRBS 1201 & TRBS 1111 (Technische Regeln für Betriebssicherheit)",
+];
+
+const leistungen = [
+  "Prüfung ortsveränderlicher Betriebsmittel",
+  "Prüfung ortsfester elektrischer Anlagen und Maschinen",
+  "Prüfung von Ladestationen / Wallboxen für Elektrofahrzeuge nach DIN VDE 0100-722",
+  "Prüfung von Flurförderzeug-Ladeinfrastruktur",
+  "Prüfung von RCDs und FI´s",
+];
+
+const vorteile = [
+  "Alle Leistungen aus einer Hand: Beratung, Prüfung, Nachverfolgung",
+  "Erfahrung: 20 Jahre Erfahrung im Bereich Prüfung von elektrischen Verbrauchern",
+  "Zukunftssicher: modernste Prüfgeräte und eine digitale Dokumentation",
+  "Keine versteckten Kosten: Transparente Angebote",
 ];
 
 const ablauf = [
   {
     step: "1",
-    title: "Bestandsaufnahme",
-    description: "Erfassung aller prüfpflichtigen elektrischen Geräte in Ihrem Betrieb.",
+    title: "Erstkontakt",
+    description: "Kontaktaufnahme per Telefon oder Kontaktformular, erstes Beratungsgespräch, Terminabstimmung zur Begehung",
+    icon: Phone,
   },
   {
     step: "2",
-    title: "Terminvereinbarung",
-    description: "Flexible Terminplanung, abgestimmt auf Ihren Betriebsablauf.",
+    title: "Betriebsbegehung",
+    description: "Erfassung der vorhandenen Prüflinge vor Ort, Abstimmung der Prüfanforderungen",
+    icon: MapPin,
   },
   {
     step: "3",
-    title: "Durchführung der Prüfung",
-    description: "Prüfung nach DGUV V3 / VDE 0701-0702 durch qualifizierte Elektrofachkräfte.",
+    title: "Angebotserstellung",
+    description: "Kalkulation auf Basis des tatsächlichen Aufwands, transparente Preisstruktur",
+    icon: FileText,
   },
   {
     step: "4",
-    title: "Dokumentation",
-    description: "Erstellung eines rechtssicheren Prüfprotokolls für jedes geprüfte Gerät.",
+    title: "Durchführung der Prüfung",
+    description: "Prüfung aller elektrischen Betriebsmittel und Verbraucher, Inventarisierung der geprüften Prüflinge",
+    icon: ClipboardCheck,
   },
   {
     step: "5",
-    title: "Kennzeichnung",
-    description: "Anbringen von Prüfplaketten mit nächstem Prüftermin.",
-  },
-];
-
-const benefits = [
-  {
-    icon: Shield,
-    title: "Haftungsabsicherung",
-    description: "Erfüllung Ihrer gesetzlichen Prüfpflichten schützt vor Haftungsrisiken bei Unfällen.",
-  },
-  {
+    title: "Auswertung der Prüfergebnisse",
+    description: "Dokumentation der Prüfergebnisse, Festlegung des zukünftigen Prüfintervalls",
     icon: FileCheck,
-    title: "Rechtssichere Dokumentation",
-    description: "Detaillierte Prüfprotokolle für jedes geprüfte Gerät zur Vorlage bei Behörden.",
   },
   {
-    icon: Tag,
-    title: "Prüfplaketten",
-    description: "Eindeutige Kennzeichnung aller geprüften Geräte mit dem nächsten Prüftermin.",
-  },
-  {
-    icon: Clock,
-    title: "Fristenmanagement",
-    description: "Automatische Erinnerung an anstehende Prüftermine.",
+    step: "6",
+    title: "Livezugriff",
+    description: "Zugriff auf Ihre Prüfberichte über das Protect-Kundenportal, Echtzeit-Einsicht in Gerätehistorie und Fristen",
+    icon: Eye,
   },
 ];
 
@@ -84,34 +88,32 @@ export default function ElektrischePruefung() {
             <div>
               <div className="mb-4 inline-flex items-center gap-2 rounded-md bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
                 <Zap className="h-4 w-4" />
-                DGUV V3 / VDE 0701-0702
+                DGUV Vorschrift 3
               </div>
               <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl" data-testid="text-elektrisch-title">
                 Elektrische Geräteprüfung
               </h1>
-              <p className="mb-6 text-lg text-muted-foreground">
-                Prüfung ortsveränderlicher elektrischer Betriebsmittel nach DGUV 
-                Vorschrift 3 und VDE 0701-0702. Unsere Elektrofachkräfte prüfen 
-                Ihre Geräte vor Ort und dokumentieren alles rechtssicher.
+              <p className="mb-6 text-muted-foreground">
+                Elektrische Anlagen und Betriebsmittel zählen zu den größten 
+                Gefährdungspotenzialen im Unternehmen. Deshalb schreibt der Gesetzgeber 
+                regelmäßige Prüfungen vor – insbesondere nach der DGUV Vorschrift 3 
+                sowie den Normen der DIN VDE.
               </p>
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <Link href="/kontakt" data-testid="link-elektrisch-cta">
-                  <Button size="lg" data-testid="button-elektrisch-cta">
-                    Prüfung anfragen
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </div>
+              <Link href="/kontakt" data-testid="link-elektrisch-cta">
+                <Button size="lg" data-testid="button-elektrisch-cta">
+                  Prüfung anfragen
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
             </div>
             <div className="flex items-center justify-center">
-              <div className="rounded-lg border bg-card p-8">
-                <h3 className="mb-4 text-lg font-semibold">Gesetzliche Grundlage</h3>
-                <p className="text-sm text-muted-foreground">
-                  Nach DGUV Vorschrift 3 (ehemals BGV A3) müssen elektrische 
-                  Betriebsmittel regelmäßig auf ihren ordnungsgemäßen Zustand 
-                  geprüft werden. Die Prüffristen richten sich nach der 
-                  Gefährdungsbeurteilung, in der Regel alle 6-24 Monate.
-                </p>
+              <div className="overflow-hidden rounded-lg">
+                <img 
+                  src={elektroImage} 
+                  alt="Elektrische Geräteprüfung" 
+                  className="h-auto w-full object-cover"
+                  data-testid="img-elektrisch-hero"
+                />
               </div>
             </div>
           </div>
@@ -120,51 +122,75 @@ export default function ElektrischePruefung() {
 
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-4 md:px-6">
-          <div className="grid gap-12 lg:grid-cols-2">
-            <div>
-              <h2 className="mb-6 text-3xl font-bold">Was wird geprüft?</h2>
-              <p className="mb-6 text-muted-foreground">
-                Alle ortsveränderlichen elektrischen Betriebsmittel, die mit Netzspannung 
-                betrieben werden, unterliegen der Prüfpflicht:
-              </p>
-              <div className="grid gap-2 sm:grid-cols-2">
-                {pruefgeraete.map((item, index) => (
-                  <div key={index} className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 shrink-0 text-primary" />
-                    <span className="text-sm">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div>
-              <h2 className="mb-6 text-3xl font-bold">Ihre Vorteile</h2>
-              <div className="space-y-4">
-                {benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                      <benefit.icon className="h-5 w-5 text-primary" />
+          <div className="grid gap-8 lg:grid-cols-2">
+            <Card>
+              <CardHeader>
+                <CardTitle>Was ist die DGUV Vorschrift 3?</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="mb-4 text-muted-foreground">
+                  Die DGUV Vorschrift 3 verpflichtet Unternehmen, alle elektrischen 
+                  Betriebsmittel und Anlagen regelmäßig auf ihren ordnungsgemäßen 
+                  Zustand prüfen zu lassen. Grundlage dafür sind:
+                </p>
+                <div className="space-y-2">
+                  {gesetzlicheGrundlagen.map((item, index) => (
+                    <div key={index} className="flex items-start gap-2" data-testid={`item-grundlage-${index}`}>
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                      <span className="text-sm">{item}</span>
                     </div>
-                    <div>
-                      <h3 className="font-semibold">{benefit.title}</h3>
-                      <p className="text-sm text-muted-foreground">{benefit.description}</p>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Unsere Leistungen im Überblick</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2">
+                  {leistungen.map((item, index) => (
+                    <div key={index} className="flex items-start gap-2" data-testid={`item-leistung-elektro-${index}`}>
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                      <span className="text-sm">{item}</span>
                     </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
       <section className="bg-muted/30 py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-4 md:px-6">
-          <h2 className="mb-8 text-center text-3xl font-bold">So läuft die Prüfung ab</h2>
-          <div className="grid gap-4 md:grid-cols-5">
+          <h2 className="mb-4 text-center text-3xl font-bold">Warum mit uns? Ihre Vorteile auf einen Blick</h2>
+          <div className="mx-auto mb-12 max-w-3xl">
+            <div className="grid gap-3 md:grid-cols-2">
+              {vorteile.map((item, index) => (
+                <div key={index} className="flex items-start gap-3 rounded-lg border bg-card p-4" data-testid={`item-vorteil-elektro-${index}`}>
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24">
+        <div className="mx-auto max-w-6xl px-4 md:px-6">
+          <h2 className="mb-8 text-center text-3xl font-bold">Vom Anruf bis zur Lösung</h2>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {ablauf.map((item, index) => (
-              <Card key={index} className="text-center" data-testid={`card-ablauf-${index}`}>
+              <Card key={index} data-testid={`card-ablauf-${index}`}>
                 <CardContent className="p-6">
-                  <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-xl font-bold text-primary-foreground">
-                    {item.step}
+                  <div className="mb-4 flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-lg font-bold text-primary-foreground">
+                      {item.step}
+                    </div>
+                    <item.icon className="h-5 w-5 text-primary" />
                   </div>
                   <h3 className="mb-2 font-semibold">{item.title}</h3>
                   <p className="text-sm text-muted-foreground">{item.description}</p>
