@@ -1,0 +1,57 @@
+import { Card, CardContent } from "@/components/ui/card";
+import { CheckCircle2, Scale, Clock, FileCheck } from "lucide-react";
+
+const trustPoints = [
+  {
+    icon: Scale,
+    title: "Gesetzeskonform",
+    description: "Alle Leistungen entsprechen den aktuellen gesetzlichen Anforderungen und DGUV-Vorschriften.",
+  },
+  {
+    icon: FileCheck,
+    title: "Lückenlose Dokumentation",
+    description: "Rechtssichere Dokumentation aller Prüfungen, Begehungen und Unterweisungen.",
+  },
+  {
+    icon: Clock,
+    title: "Zuverlässig & Termingerecht",
+    description: "Pünktliche Durchführung aller vereinbarten Termine und schnelle Reaktionszeiten.",
+  },
+  {
+    icon: CheckCircle2,
+    title: "Qualifizierte Experten",
+    description: "Unser Team besteht aus zertifizierten Fachkräften mit langjähriger Berufserfahrung.",
+  },
+];
+
+export function TrustSection() {
+  return (
+    <section className="py-16 md:py-24">
+      <div className="mx-auto max-w-6xl px-4 md:px-6">
+        <div className="mb-12 text-center">
+          <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl" data-testid="text-trust-title">
+            Warum SafetyFirst?
+          </h2>
+          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+            Vertrauen Sie auf unsere Erfahrung und Kompetenz in der Arbeitssicherheit.
+          </p>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2">
+          {trustPoints.map((point, index) => (
+            <Card key={index} className="border-l-4 border-l-primary" data-testid={`card-trust-${index}`}>
+              <CardContent className="flex items-start gap-4 p-6">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                  <point.icon className="h-6 w-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="mb-2 text-lg font-semibold">{point.title}</h3>
+                  <p className="text-muted-foreground">{point.description}</p>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
