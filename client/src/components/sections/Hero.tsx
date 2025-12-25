@@ -2,11 +2,17 @@ import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Shield, ArrowRight } from "lucide-react";
+import heroBg from "@assets/umit-yildirim-Ass0DusYDk4-unsplash_1766692412225.jpg";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-background">
-      <div className="mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-24 lg:py-32">
+    <section className="relative overflow-hidden">
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${heroBg})` }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/60" />
+      <div className="relative mx-auto max-w-6xl px-4 py-20 md:px-6 md:py-28 lg:py-36">
         <div className="flex flex-col items-center text-center">
           <motion.div 
             className="space-y-6"
@@ -14,14 +20,14 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2 rounded-md bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
+            <div className="inline-flex items-center gap-2 rounded-md bg-white/10 px-3 py-1 text-sm font-medium text-white backdrop-blur-sm">
               <Shield className="h-4 w-4" />
               Zertifizierte Arbeitssicherheit
             </div>
-            <h1 className="mx-auto max-w-4xl text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl" data-testid="text-hero-title">
+            <h1 className="mx-auto max-w-4xl text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl" data-testid="text-hero-title">
               Arbeitssicherheit für Ihr Unternehmen
             </h1>
-            <p className="mx-auto max-w-2xl text-lg text-muted-foreground md:text-xl" data-testid="text-hero-subtitle">
+            <p className="mx-auto max-w-2xl text-lg text-white/90 md:text-xl" data-testid="text-hero-subtitle">
               Wir bieten professionelle sicherheitstechnische Betreuung nach DGUV V2, 
               Betriebsmittelprüfungen, Schulungen und Brandschutz für kleine und 
               mittelständische Unternehmen.
@@ -40,7 +46,12 @@ export function Hero() {
               </Button>
             </Link>
             <Link href="/leistungen" data-testid="link-hero-services">
-              <Button variant="outline" size="lg" className="w-full sm:w-auto" data-testid="button-hero-services">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="w-full border-white/30 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 sm:w-auto" 
+                data-testid="button-hero-services"
+              >
                 Unsere Leistungen
               </Button>
             </Link>
