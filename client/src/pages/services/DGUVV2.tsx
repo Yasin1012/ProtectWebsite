@@ -11,8 +11,30 @@ import {
   Building2,
   ArrowRight,
   Scale,
-  ClipboardCheck
+  ClipboardCheck,
+  Heart,
+  HardHat
 } from "lucide-react";
+import arbeitssicherheitImage from "@assets/image_1766689624846.png";
+
+const beratungsleistungen = [
+  "Unterstützung bei der Erstellung und Überarbeitung der Gefährdungsbeurteilung inkl. Beurteilung der psychischen Belastungen am Arbeitsplatz und dem Mutterschutz",
+  "Erstellen von Betriebsanweisungen, Arbeitsanweisungen, Gefahrstoffverzeichnissen und Explosionsschutzdokumenten",
+  "Unterstützung bei allen Betreuungsleistungen (Regel-, Grund-, anlassbezogene- und betriebsspezifische Betreuung / Unternehmermodell) sowie bei Behördengängen und Kooperationen mit der BG",
+  "Unterstützung während der Planung und Ausführung von Bauvorhaben durch einen Sicherheits- und Gesundheitsschutzkoordinator (SiGeKo)",
+];
+
+const weitereThemen = [
+  "CE-Konformitätserklärung (Verfahren)",
+  "Begleitung von Audits (ISO 9001 & ISO 045001)",
+  "Elektrotechnische Organisation",
+];
+
+const gesundheitsschutz = [
+  "Gesundheitsprävention",
+  "Stressmanagement",
+  "Burnoutprävention / -beratung",
+];
 
 const benefits = [
   {
@@ -46,17 +68,6 @@ const targetGroups = [
   "Praxen und Pflegeeinrichtungen",
 ];
 
-const serviceContent = [
-  "Regelmäßige Arbeitsplatzbegehungen",
-  "Erstellung und Aktualisierung von Gefährdungsbeurteilungen",
-  "Beratung bei der Beschaffung von Arbeitsmitteln",
-  "Unterstützung bei der Erstellung von Betriebsanweisungen",
-  "Beratung zu persönlicher Schutzausrüstung (PSA)",
-  "Teilnahme am Arbeitsschutzausschuss (ASA)",
-  "Unfallanalyse und Präventionsberatung",
-  "Beratung zu Arbeitsstättenverordnung",
-];
-
 export default function DGUVV2() {
   return (
     <Layout>
@@ -69,12 +80,16 @@ export default function DGUVV2() {
                 DGUV Vorschrift 2
               </div>
               <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl" data-testid="text-dguv-title">
-                Sicherheitstechnische Betreuung
+                Arbeitssicherheit
               </h1>
               <p className="mb-6 text-lg text-muted-foreground">
-                Als Ihr externer Partner für Arbeitssicherheit übernehmen wir die gesetzlich 
-                vorgeschriebene sicherheitstechnische Betreuung gemäß DGUV Vorschrift 2. 
-                Unsere qualifizierten Fachkräfte unterstützen Sie kompetent und zuverlässig.
+                Sicherheit am Arbeitsplatz ist kein Luxus, sondern Pflicht und eine Investition 
+                in die Zukunft Ihres Unternehmens.
+              </p>
+              <p className="mb-6 text-muted-foreground">
+                Das Arbeitssicherheitsgesetz und die DGUV Vorschrift 2 „Betriebsärzte und 
+                Fachkräfte für Arbeitssicherheit" fordern die sicherheitstechnische Betreuung 
+                der Unternehmen durch Fachkräfte für Arbeitssicherheit.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Link href="/kontakt" data-testid="link-dguv-cta">
@@ -91,14 +106,13 @@ export default function DGUVV2() {
               </div>
             </div>
             <div className="flex items-center justify-center">
-              <div className="rounded-lg border bg-card p-8">
-                <h3 className="mb-4 text-lg font-semibold">Gesetzliche Grundlage</h3>
-                <p className="text-sm text-muted-foreground">
-                  Nach dem Arbeitssicherheitsgesetz (ASiG) und der DGUV Vorschrift 2 ist 
-                  jeder Arbeitgeber verpflichtet, Fachkräfte für Arbeitssicherheit und 
-                  Betriebsärzte zu bestellen. Die Einsatzzeiten richten sich nach der 
-                  Betriebsgröße und den vorhandenen Gefährdungen.
-                </p>
+              <div className="overflow-hidden rounded-lg">
+                <img 
+                  src={arbeitssicherheitImage} 
+                  alt="Arbeitssicherheit Beratung" 
+                  className="h-auto w-full object-cover"
+                  data-testid="img-dguv-hero"
+                />
               </div>
             </div>
           </div>
@@ -107,7 +121,10 @@ export default function DGUVV2() {
 
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-4 md:px-6">
-          <h2 className="mb-8 text-center text-3xl font-bold">Ihre Vorteile</h2>
+          <h2 className="mb-4 text-center text-3xl font-bold">Ihre Vorteile</h2>
+          <p className="mx-auto mb-8 max-w-2xl text-center text-muted-foreground">
+            Profitieren Sie von unserer rechtssicheren Beratung für Ihr Unternehmen.
+          </p>
           <div className="grid gap-6 md:grid-cols-2">
             {benefits.map((benefit, index) => (
               <Card key={index} data-testid={`card-benefit-${index}`}>
@@ -128,29 +145,64 @@ export default function DGUVV2() {
 
       <section className="bg-muted/30 py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-4 md:px-6">
-          <div className="grid gap-12 lg:grid-cols-2">
-            <div>
-              <h2 className="mb-6 text-3xl font-bold">Unsere Leistungen im Detail</h2>
-              <div className="space-y-3">
-                {serviceContent.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
+          <div className="mb-8">
+            <h2 className="mb-4 text-3xl font-bold">Unsere rechtskonforme Beratung umfasst:</h2>
+          </div>
+          <div className="grid gap-6 lg:grid-cols-2">
+            <div className="space-y-4">
+              {beratungsleistungen.map((item, index) => (
+                <div key={index} className="flex items-start gap-3" data-testid={`item-beratung-${index}`}>
+                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-primary" />
+                  <span className="text-muted-foreground">{item}</span>
+                </div>
+              ))}
             </div>
             <div>
-              <h2 className="mb-6 text-3xl font-bold">Für wen ist diese Leistung?</h2>
-              <div className="space-y-3">
-                {targetGroups.map((group, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <Building2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                    <span>{group}</span>
+              <Card>
+                <CardContent className="p-6">
+                  <div className="mb-4 flex items-center gap-2">
+                    <HardHat className="h-5 w-5 text-primary" />
+                    <h3 className="font-semibold">Darüber hinaus unterstützen wir Sie zu:</h3>
                   </div>
-                ))}
-              </div>
+                  <div className="mb-6 space-y-2">
+                    {weitereThemen.map((item, index) => (
+                      <div key={index} className="flex items-start gap-3" data-testid={`item-thema-${index}`}>
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                        <span className="text-sm">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="border-t pt-4">
+                    <div className="mb-4 flex items-center gap-2">
+                      <Heart className="h-5 w-5 text-primary" />
+                      <h3 className="font-semibold">Gesundheitsschutz über Partner:</h3>
+                    </div>
+                    <div className="space-y-2">
+                      {gesundheitsschutz.map((item, index) => (
+                        <div key={index} className="flex items-start gap-3" data-testid={`item-gesundheit-${index}`}>
+                          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                          <span className="text-sm">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24">
+        <div className="mx-auto max-w-6xl px-4 md:px-6">
+          <h2 className="mb-6 text-3xl font-bold">Für wen ist diese Leistung?</h2>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {targetGroups.map((group, index) => (
+              <div key={index} className="flex items-center gap-3 rounded-lg border bg-card p-4" data-testid={`item-zielgruppe-${index}`}>
+                <Building2 className="h-5 w-5 shrink-0 text-primary" />
+                <span>{group}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>

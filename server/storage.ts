@@ -1,4 +1,4 @@
-import { type User, type InsertUser, type ContactRequest, type InsertContact } from "@shared/schema";
+import { type User, type InsertUser, type ContactRequest, type InsertContact, users, contactRequests } from "@shared/schema";
 import { randomUUID } from "crypto";
 
 export interface IStorage {
@@ -51,4 +51,48 @@ export class MemStorage implements IStorage {
   }
 }
 
-export const storage = new MemStorage();
+async function createStorage(): Promise<IStorage> {
+  if (process.env.DATABASE_URL) {
+    try {
+      const { db } = await import("./db");
+      const { eq } = await import("drizzle-orm");
+
+      class DatabaseStorage implements IStorage {
+        async getUser(id: string): Promise<User | undefined> {
+          const [user] = await db.select().from(users).where(eq(users.id, id));
+          return user;
+        }
+
+        async getUserByUsername(username: string): Promise<User | undefined> {
+          const [user] = await db.select().from(users).where(eq(users.username, username));
+          return user;
+        }
+
+        async createUser(insertUser: InsertUser): Promise<User> {
+          const [user] = await db.insert(users).values(insertUser).returning();
+          return user;
+        }
+
+        async createContactRequest(insertContact: InsertContact): Promise<ContactRequest> {
+          const [contactRequest] = await db.insert(contactRequests).values(insertContact).returning();
+          return contactRequest;
+        }
+
+        async getContactRequests(): Promise<ContactRequest[]> {
+          return db.select().from(contactRequests);
+        }
+      }
+
+      console.log("[storage] Using PostgreSQL database storage");
+      return new DatabaseStorage();
+    } catch (error) {
+      console.warn("[storage] Failed to connect to database, falling back to in-memory storage:", error);
+      return new MemStorage();
+    }
+  }
+  
+  console.log("[storage] Using in-memory storage");
+  return new MemStorage();
+}
+
+export const storage = await createStorage();

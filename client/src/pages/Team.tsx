@@ -1,82 +1,46 @@
 import { Layout } from "@/components/layout/Layout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
 import { CTASection } from "@/components/sections/CTASection";
 import { Award, GraduationCap, Shield, Users } from "lucide-react";
 
 const team = [
   {
-    name: "Dr. Michael Weber",
+    name: "Bernhard Decker",
     role: "Geschäftsführer",
-    initials: "MW",
-    qualifications: [
-      "Diplom-Ingenieur",
-      "Fachkraft für Arbeitssicherheit",
-      "Brandschutzbeauftragter",
-    ],
-    description: "Über 20 Jahre Erfahrung in der Arbeitssicherheit. Spezialisiert auf Industriebetriebe und komplexe Gefährdungsbeurteilungen.",
+    initials: "BD",
   },
   {
-    name: "Sandra Müller",
-    role: "Leiterin Sicherheitstechnik",
-    initials: "SM",
-    qualifications: [
-      "Sicherheitsingenieurin",
-      "Fachkraft für Arbeitssicherheit",
-      "Ausbilderin AdA",
-    ],
-    description: "Expertin für sicherheitstechnische Betreuung nach DGUV V2. Schwerpunkt: Handwerk und mittelständische Unternehmen.",
+    name: "André Decker",
+    role: "Leitung Innendienst",
+    initials: "AD",
   },
   {
-    name: "Thomas Schneider",
-    role: "Prüfingenieur",
-    initials: "TS",
-    qualifications: [
-      "Elektroingenieur",
-      "Befähigte Person nach BetrSichV",
-      "VDE-Prüfer",
-    ],
-    description: "Spezialist für elektrische Prüfungen nach DGUV V3. Langjährige Erfahrung in der Prüfung industrieller Anlagen.",
+    name: "Jacqueline Decker",
+    role: "Innendienst",
+    initials: "JD",
   },
   {
-    name: "Julia Hartmann",
-    role: "Brandschutzexpertin",
-    initials: "JH",
-    qualifications: [
-      "Brandschutzbeauftragte",
-      "Ausbilderin Brandschutzhelfer",
-      "Evakuierungsbeauftragte",
-    ],
-    description: "Entwickelt Brandschutzkonzepte und schult Mitarbeiter. Erfahrung in Gesundheitswesen und Verwaltung.",
+    name: "Jörg Marquardt",
+    role: "Betriebsleiter Prüfdienst",
+    initials: "JM",
   },
   {
-    name: "Markus Becker",
-    role: "Schulungsleiter",
-    initials: "MB",
-    qualifications: [
-      "Meister im Handwerk",
-      "Ausbilder Erste Hilfe",
-      "Sicherheitsbeauftragter",
-    ],
-    description: "Leitet unsere Schulungsabteilung. Praxisnahe Trainings mit hohem Wiedererkennungswert für die Teilnehmer.",
+    name: "Erik Bannier",
+    role: "Innendienst",
+    initials: "EB",
   },
   {
-    name: "Lisa Richter",
-    role: "Kundenbetreuung",
-    initials: "LR",
-    qualifications: [
-      "Kauffrau für Büromanagement",
-      "Fachkraft für Arbeitsschutz",
-    ],
-    description: "Ihr erster Ansprechpartner für Anfragen und Terminkoordination. Sorgt für reibungslose Abläufe.",
+    name: "Lisa Wieczorek",
+    role: "Innendienst",
+    initials: "LW",
   },
 ];
 
 const stats = [
   { icon: Shield, value: "15+", label: "Jahre Erfahrung" },
   { icon: Users, value: "6", label: "Experten im Team" },
-  { icon: Award, value: "12+", label: "Zertifizierungen" },
+  { icon: Award, value: "500+", label: "Zufriedene Kunden" },
   { icon: GraduationCap, value: "1000+", label: "Schulungen durchgeführt" },
 ];
 
@@ -90,8 +54,8 @@ export default function Team() {
               Unser Team
             </h1>
             <p className="mb-12 text-lg text-muted-foreground">
-              Erfahrene Experten für Ihre Arbeitssicherheit. Jedes Teammitglied 
-              bringt spezifische Qualifikationen und jahrelange Praxiserfahrung mit.
+              Kompetenz und Erfahrung für Ihre Arbeitssicherheit. 
+              Unser engagiertes Team steht Ihnen mit Fachwissen und persönlicher Beratung zur Seite.
             </p>
           </div>
           <div className="grid gap-4 md:grid-cols-4">
@@ -110,29 +74,29 @@ export default function Team() {
 
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-4 md:px-6">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold">Lernen Sie uns kennen</h2>
+            <p className="mx-auto max-w-2xl text-muted-foreground">
+              Jedes Teammitglied bringt seine individuellen Stärken ein, um Ihnen den bestmöglichen Service zu bieten.
+            </p>
+          </div>
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {team.map((member, index) => (
-              <Card key={index} className="overflow-hidden" data-testid={`card-team-${index}`}>
-                <CardContent className="p-6">
-                  <div className="mb-4 flex items-center gap-4">
-                    <Avatar className="h-16 w-16">
-                      <AvatarFallback className="bg-primary/10 text-lg font-semibold text-primary">
+              <Card key={index} className="group overflow-visible" data-testid={`card-team-${index}`}>
+                <CardContent className="p-8 text-center">
+                  <div className="mb-6 flex justify-center">
+                    <Avatar className="h-24 w-24 ring-4 ring-primary/10">
+                      <AvatarFallback className="bg-primary text-xl font-semibold text-primary-foreground">
                         {member.initials}
                       </AvatarFallback>
                     </Avatar>
-                    <div>
-                      <h3 className="font-semibold">{member.name}</h3>
-                      <p className="text-sm text-primary">{member.role}</p>
-                    </div>
                   </div>
-                  <p className="mb-4 text-sm text-muted-foreground">{member.description}</p>
-                  <div className="flex flex-wrap gap-1">
-                    {member.qualifications.map((qual, qualIndex) => (
-                      <Badge key={qualIndex} variant="secondary" className="text-xs">
-                        {qual}
-                      </Badge>
-                    ))}
-                  </div>
+                  <h3 className="mb-1 text-xl font-semibold" data-testid={`text-team-name-${index}`}>
+                    {member.name}
+                  </h3>
+                  <p className="text-primary font-medium" data-testid={`text-team-role-${index}`}>
+                    {member.role}
+                  </p>
                 </CardContent>
               </Card>
             ))}
