@@ -68,7 +68,7 @@ export default function Network() {
 
   return (
     <Layout>
-      <section className="bg-gradient-to-b from-primary/5 to-background py-16 md:py-24">
+      <section className="bg-gradient-to-b from-primary/5 to-background py-12 md:py-16">
         <div className="mx-auto max-w-6xl px-4 md:px-6">
           <motion.div 
             className="mx-auto max-w-3xl text-center"
@@ -92,7 +92,7 @@ export default function Network() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24" ref={containerRef}>
+      <section className="py-12 md:py-16" ref={containerRef}>
         <div className="mx-auto max-w-6xl px-4 md:px-6">
           <motion.h2 
             className="mb-12 text-center text-3xl font-bold"

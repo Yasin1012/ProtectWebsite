@@ -110,7 +110,7 @@ export default function Services() {
 
   return (
     <Layout>
-      <section className="bg-gradient-to-b from-primary/5 to-background py-16 md:py-24">
+      <section className="bg-gradient-to-b from-primary/5 to-background py-12 md:py-16">
         <div className="mx-auto max-w-6xl px-4 md:px-6">
           <motion.div 
             className="mb-12 text-center"
@@ -129,7 +129,7 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24" ref={containerRef}>
+      <section className="py-12 md:py-16" ref={containerRef}>
         <div className="mx-auto max-w-6xl px-4 md:px-6">
           <div className="space-y-12">
             {services.map((service, index) => (

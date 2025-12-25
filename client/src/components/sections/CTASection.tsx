@@ -15,7 +15,7 @@ export function CTASection({
   showContactInfo = true
 }: CTASectionProps) {
   return (
-    <section className="bg-muted/30 py-16 md:py-24">
+    <section className="bg-muted/30 py-12 md:py-16">
       <div className="mx-auto max-w-4xl px-4 md:px-6">
         <Card className="overflow-hidden border-primary/20 bg-gradient-to-br from-primary/5 via-background to-primary/5">
           <CardContent className="p-8 text-center md:p-12">

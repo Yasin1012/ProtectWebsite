@@ -55,7 +55,7 @@ export function TrustSection() {
   const isInView = useIntersectionObserver(containerRef);
 
   return (
-    <section className="py-16 md:py-24" ref={containerRef}>
+    <section className="py-12 md:py-16" ref={containerRef}>
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <motion.div 
           className="mb-12 text-center"

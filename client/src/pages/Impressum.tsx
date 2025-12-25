@@ -3,7 +3,7 @@ import { Layout } from "@/components/layout/Layout";
 export default function Impressum() {
   return (
     <Layout>
-      <section className="py-16 md:py-24">
+      <section className="py-12 md:py-16">
         <div className="mx-auto max-w-3xl px-4 md:px-6">
           <h1 className="mb-8 text-4xl font-bold" data-testid="text-impressum-title">Impressum</h1>
           

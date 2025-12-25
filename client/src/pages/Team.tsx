@@ -47,7 +47,7 @@ const stats = [
 export default function Team() {
   return (
     <Layout>
-      <section className="bg-gradient-to-b from-primary/5 to-background py-16 md:py-24">
+      <section className="bg-gradient-to-b from-primary/5 to-background py-12 md:py-16">
         <div className="mx-auto max-w-6xl px-4 md:px-6">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl" data-testid="text-team-title">
@@ -72,7 +72,7 @@ export default function Team() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
+      <section className="py-12 md:py-16">
         <div className="mx-auto max-w-6xl px-4 md:px-6">
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-3xl font-bold">Lernen Sie uns kennen</h2>

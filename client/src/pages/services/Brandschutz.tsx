@@ -41,7 +41,7 @@ const dokumentationPlanung = [
 export default function Brandschutz() {
   return (
     <Layout>
-      <section className="bg-gradient-to-b from-primary/5 to-background py-16 md:py-24">
+      <section className="bg-gradient-to-b from-primary/5 to-background py-12 md:py-16">
         <div className="mx-auto max-w-6xl px-4 md:px-6">
           <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
             <div>
@@ -84,7 +84,7 @@ export default function Brandschutz() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
+      <section className="py-12 md:py-16">
         <div className="mx-auto max-w-6xl px-4 md:px-6">
           <h2 className="mb-8 text-center text-3xl font-bold">Unsere Leistungen im Überblick</h2>
           <div className="grid gap-6 lg:grid-cols-3">
