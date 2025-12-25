@@ -1,82 +1,51 @@
 import { Link } from "wouter";
 import { Layout } from "@/components/layout/Layout";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CTASection } from "@/components/sections/CTASection";
-import { 
-  ShieldCheck, 
-  Wrench, 
-  GraduationCap, 
-  Flame, 
-  Zap,
-  ArrowRight,
-  CheckCircle2
-} from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+import arbeitssicherheitImage from "@assets/image_1766689624846.png";
+import arbeitsmittelImage from "@assets/image_1766689685291.png";
+import fortbildungImage from "@assets/image_1766690223127.png";
 
 const services = [
   {
-    icon: ShieldCheck,
-    title: "Sicherheitstechnische Betreuung",
+    image: arbeitssicherheitImage,
+    title: "Arbeitssicherheit",
     subtitle: "Gemäß DGUV Vorschrift 2",
-    description: "Als Ihr externer Partner übernehmen wir die gesetzlich vorgeschriebene sicherheitstechnische Betreuung. Unsere Fachkräfte für Arbeitssicherheit unterstützen Sie bei allen Fragen rund um sichere Arbeitsplätze.",
+    description: "Sicherheit am Arbeitsplatz ist kein Luxus, sondern Pflicht und eine Investition in die Zukunft Ihres Unternehmens. Als Ihr externer Partner übernehmen wir die gesetzlich vorgeschriebene sicherheitstechnische Betreuung.",
     href: "/leistungen/dguv-v2",
     benefits: [
-      "Erfüllung der gesetzlichen Pflichten",
-      "Regelmäßige Arbeitsplatzbegehungen",
       "Gefährdungsbeurteilungen",
-      "Beratung bei Neuanschaffungen",
+      "Betriebsanweisungen",
+      "Betreuungsleistungen nach DGUV V2",
+      "SiGeKo bei Bauvorhaben",
     ],
   },
   {
-    icon: Wrench,
-    title: "Betriebsmittelprüfungen",
-    subtitle: "Nach BetrSichV und DGUV",
-    description: "Regelmäßige Prüfung Ihrer Arbeitsmittel und Betriebseinrichtungen durch qualifizierte Prüfer. Wir dokumentieren alles rechtssicher und sorgen für die Einhaltung aller Prüffristen.",
+    image: arbeitsmittelImage,
+    title: "Arbeitsmittelprüfung",
+    subtitle: "Nach BetrSichV und TRBS 1201",
+    description: "Arbeitsmittel unterliegen gesetzlichen Prüfpflichten. Wir prüfen Ihre Arbeitsmittel durch befähigte Personen und dokumentieren alles rechtssicher.",
     href: "/leistungen/betriebsmittelpruefung",
     benefits: [
       "Leitern, Tritte, Regale",
-      "Hebebühnen und Krane",
-      "Druckbehälter",
-      "Tore, Türen, Fenster",
+      "Flurförderzeuge & Hubarbeitsbühnen",
+      "Elektrische Betriebsmittel",
+      "Altmaschinen-Bewertung",
     ],
   },
   {
-    icon: GraduationCap,
+    image: fortbildungImage,
     title: "Aus- und Fortbildungen",
-    subtitle: "Praxisorientierte Schulungen",
-    description: "Von der Ersthelfer-Ausbildung bis zur Schulung von Sicherheitsbeauftragten bieten wir praxisnahe Trainings, die Ihre Mitarbeiter fit für den Arbeitsalltag machen.",
+    subtitle: "Praxisnah und rechtssicher",
+    description: "Unsere Aus- und Weiterbildungen basieren auf aktuellen gesetzlichen Anforderungen und werden individuell auf Ihr Unternehmen abgestimmt.",
     href: "/leistungen/fortbildung",
     benefits: [
-      "Ersthelfer-Ausbildung",
+      "Flurförderzeuge & Krane",
       "Sicherheitsbeauftragte",
-      "Unterweisungen nach §12 ArbSchG",
-      "Brandschutzhelfer",
-    ],
-  },
-  {
-    icon: Flame,
-    title: "Brandschutz",
-    subtitle: "Prävention und Konzepte",
-    description: "Ganzheitliche Brandschutzbetreuung von der Erstellung von Flucht- und Rettungsplänen bis zur Ausbildung Ihrer Brandschutzhelfer und regelmäßigen Unterweisungen.",
-    href: "/leistungen/brandschutz",
-    benefits: [
-      "Brandschutzordnung",
-      "Flucht- und Rettungspläne",
-      "Brandschutzhelfer-Ausbildung",
-      "Evakuierungsübungen",
-    ],
-  },
-  {
-    icon: Zap,
-    title: "Elektrische Geräteprüfung",
-    subtitle: "DGUV V3 / VDE 0701-0702",
-    description: "Prüfung ortsveränderlicher elektrischer Betriebsmittel nach den aktuellen Normen. Wir dokumentieren alle Ergebnisse und kennzeichnen Ihre Geräte mit Prüfplaketten.",
-    href: "/leistungen/elektrische-pruefung",
-    benefits: [
-      "Rechtssichere Dokumentation",
-      "Prüfplaketten",
-      "Flexible Terminierung",
-      "Vor-Ort-Service",
+      "Wiederholungsschulungen",
+      "Aktionstage & Spezialthemen",
     ],
   },
 ];
@@ -103,19 +72,22 @@ export default function Services() {
           <div className="space-y-12">
             {services.map((service, index) => (
               <Card key={index} className="overflow-hidden" data-testid={`card-service-detail-${index}`}>
-                <div className="grid md:grid-cols-3">
-                  <div className="bg-muted/30 p-6 md:p-8">
-                    <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-primary/10">
-                      <service.icon className="h-7 w-7 text-primary" />
-                    </div>
-                    <h2 className="mb-1 text-2xl font-bold">{service.title}</h2>
-                    <p className="text-sm font-medium text-primary">{service.subtitle}</p>
+                <div className="grid md:grid-cols-2">
+                  <div className="aspect-video md:aspect-auto">
+                    <img 
+                      src={service.image} 
+                      alt={service.title}
+                      className="h-full w-full object-cover"
+                      data-testid={`img-service-detail-${index}`}
+                    />
                   </div>
-                  <div className="p-6 md:col-span-2 md:p-8">
+                  <div className="flex flex-col justify-center p-6 md:p-8">
+                    <p className="mb-1 text-sm font-medium text-primary">{service.subtitle}</p>
+                    <h2 className="mb-4 text-2xl font-bold">{service.title}</h2>
                     <p className="mb-6 text-muted-foreground">{service.description}</p>
                     <div className="mb-6 grid gap-2 sm:grid-cols-2">
                       {service.benefits.map((benefit, benefitIndex) => (
-                        <div key={benefitIndex} className="flex items-center gap-2">
+                        <div key={benefitIndex} className="flex items-center gap-2" data-testid={`item-benefit-${index}-${benefitIndex}`}>
                           <CheckCircle2 className="h-4 w-4 shrink-0 text-primary" />
                           <span className="text-sm">{benefit}</span>
                         </div>

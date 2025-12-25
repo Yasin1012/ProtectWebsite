@@ -1,50 +1,32 @@
 import { Link } from "wouter";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { 
-  ShieldCheck, 
-  Wrench, 
-  GraduationCap, 
-  Flame, 
-  Zap,
-  ArrowRight 
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import arbeitssicherheitImage from "@assets/image_1766689624846.png";
+import arbeitsmittelImage from "@assets/image_1766689685291.png";
+import fortbildungImage from "@assets/image_1766690223127.png";
 
 const services = [
   {
-    icon: ShieldCheck,
-    title: "Sicherheitstechnische Betreuung",
+    image: arbeitssicherheitImage,
+    title: "Arbeitssicherheit",
     description: "Gesetzeskonforme Betreuung nach DGUV Vorschrift 2. Wir unterstützen Sie bei allen Fragen der Arbeitssicherheit.",
     href: "/leistungen/dguv-v2",
     keywords: "DGUV V2, Fachkraft für Arbeitssicherheit",
   },
   {
-    icon: Wrench,
-    title: "Betriebsmittelprüfungen",
+    image: arbeitsmittelImage,
+    title: "Arbeitsmittelprüfung",
     description: "Regelmäßige Prüfung Ihrer Arbeitsmittel und Betriebseinrichtungen nach BetrSichV und DGUV Vorschriften.",
     href: "/leistungen/betriebsmittelpruefung",
-    keywords: "Arbeitsmittelprüfung, BetrSichV",
+    keywords: "BetrSichV, TRBS 1201",
   },
   {
-    icon: GraduationCap,
+    image: fortbildungImage,
     title: "Aus- und Fortbildungen",
     description: "Praxisnahe Schulungen für Ihre Mitarbeiter. Von Ersthelfer-Kursen bis zur Sicherheitsbeauftragten-Ausbildung.",
     href: "/leistungen/fortbildung",
     keywords: "Schulungen, Unterweisung",
-  },
-  {
-    icon: Flame,
-    title: "Brandschutz",
-    description: "Ganzheitliche Brandschutzkonzepte, Flucht- und Rettungspläne sowie regelmäßige Brandschutzunterweisungen.",
-    href: "/leistungen/brandschutz",
-    keywords: "Brandschutzbeauftragter, Feuerlöscher",
-  },
-  {
-    icon: Zap,
-    title: "Elektrische Geräteprüfung",
-    description: "Prüfung ortsveränderlicher elektrischer Betriebsmittel nach DGUV V3 und VDE-Vorschriften.",
-    href: "/leistungen/elektrische-pruefung",
-    keywords: "DGUV V3, E-Check, VDE",
   },
 ];
 
@@ -64,21 +46,26 @@ export function ServicesOverview() {
           {services.map((service, index) => (
             <Card 
               key={index} 
-              className="group flex flex-col transition-all hover-elevate"
+              className="group flex flex-col overflow-hidden transition-all hover-elevate"
               data-testid={`card-service-${index}`}
             >
-              <CardHeader>
-                <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                  <service.icon className="h-6 w-6 text-primary" />
-                </div>
+              <div className="aspect-video overflow-hidden">
+                <img 
+                  src={service.image} 
+                  alt={service.title}
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  data-testid={`img-service-${index}`}
+                />
+              </div>
+              <CardHeader className="pb-2">
                 <CardTitle className="text-xl">{service.title}</CardTitle>
                 <CardDescription className="text-sm text-muted-foreground">
                   {service.keywords}
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex flex-1 flex-col justify-between gap-4">
-                <p className="text-muted-foreground">{service.description}</p>
-                <Link href={service.href}>
+                <p className="text-sm text-muted-foreground">{service.description}</p>
+                <Link href={service.href} data-testid={`link-service-${index}`}>
                   <Button variant="ghost" className="w-full justify-between" data-testid={`button-service-${index}`}>
                     Mehr erfahren
                     <ArrowRight className="h-4 w-4" />
