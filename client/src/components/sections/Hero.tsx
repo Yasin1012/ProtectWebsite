@@ -1,12 +1,18 @@
 import { Link } from "wouter";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Shield, ArrowRight } from "lucide-react";
 import heroBg from "@assets/umit-yildirim-Ass0DusYDk4-unsplash_1766692412225.jpg";
 
 export function Hero() {
+  useEffect(() => {
+    const img = new Image();
+    img.src = heroBg;
+  }, []);
+
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden bg-slate-800">
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroBg})` }}
