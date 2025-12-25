@@ -1,9 +1,10 @@
 import { Link } from "wouter";
-import { Shield, Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
+import protectLogo from "@assets/image_1766691843589.png";
 
 const services = [
-  { label: "DGUV V2 Betreuung", href: "/leistungen/dguv-v2" },
-  { label: "Betriebsmittelprüfung", href: "/leistungen/betriebsmittelpruefung" },
+  { label: "Arbeitssicherheit", href: "/leistungen/dguv-v2" },
+  { label: "Arbeitsmittelprüfung", href: "/leistungen/betriebsmittelpruefung" },
   { label: "Aus- und Fortbildung", href: "/leistungen/fortbildung" },
   { label: "Brandschutz", href: "/leistungen/brandschutz" },
   { label: "Elektrische Prüfung", href: "/leistungen/elektrische-pruefung" },
@@ -27,13 +28,10 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-12 md:px-6 md:py-16">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <Shield className="h-6 w-6 text-primary" />
-              <span className="text-lg font-bold">SafetyFirst GmbH</span>
-            </div>
+            <img src={protectLogo} alt="Protect GmbH" className="h-12 w-auto" />
             <p className="text-sm text-muted-foreground">
               Ihr Partner für professionelle Arbeitssicherheit und Gesundheitsschutz.
-              Seit über 15 Jahren Ihr Experte für sichere Arbeitsplätze.
+              Seit über 20 Jahren Ihr Experte für sichere Arbeitsplätze.
             </p>
           </div>
 
@@ -80,9 +78,9 @@ export function Footer() {
                 <Phone className="h-4 w-4 shrink-0" />
                 <span>+49 123 456 789 00</span>
               </a>
-              <a href="mailto:info@safetyfirst.de" className="flex items-center gap-2 transition-colors hover:text-foreground" data-testid="link-footer-email">
+              <a href="mailto:info@protect-gmbh.de" className="flex items-center gap-2 transition-colors hover:text-foreground" data-testid="link-footer-email">
                 <Mail className="h-4 w-4 shrink-0" />
-                <span>info@safetyfirst.de</span>
+                <span>info@protect-gmbh.de</span>
               </a>
             </div>
           </div>
@@ -90,7 +88,7 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 md:flex-row">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} SafetyFirst GmbH. Alle Rechte vorbehalten.
+            © {new Date().getFullYear()} Protect Arbeitssicherheit & Gesundheitsschutz GmbH. Alle Rechte vorbehalten.
           </p>
           <nav className="flex flex-wrap items-center gap-4">
             {legalLinks.map((item) => (

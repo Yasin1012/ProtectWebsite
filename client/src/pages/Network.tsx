@@ -1,81 +1,81 @@
+import { useRef, useState, useEffect, type RefObject } from "react";
+import { motion } from "framer-motion";
+import { Link } from "wouter";
 import { Layout } from "@/components/layout/Layout";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { CTASection } from "@/components/sections/CTASection";
-import { 
-  Building2, 
-  Handshake, 
-  Network as NetworkIcon,
-  GraduationCap,
-  Stethoscope,
-  Scale,
-  Shield,
-  Users
-} from "lucide-react";
+import { Handshake, ExternalLink } from "lucide-react";
+import smkLogo from "@assets/image_1766691647455.png";
+import stiltzLogo from "@assets/image_1766691678628.png";
+import arbeitsschutzUlmLogo from "@assets/image_1766691722179.png";
+import simoneHoenleLogo from "@assets/image_1766691749659.png";
 
 const partners = [
   {
-    icon: Stethoscope,
-    category: "Arbeitsmedizin",
-    title: "Betriebsärztliche Dienste",
-    description: "Kooperation mit erfahrenen Arbeitsmedizinern für die komplette arbeitsmedizinische Betreuung Ihres Unternehmens.",
+    logo: smkLogo,
+    name: "SmK - Sicherheit mit Konzept",
+    description: "Die SmK ist eine Kooperation aus 4 selbstständigen Unternehmen (Labels)",
+    link: "https://smk-online.eu",
   },
   {
-    icon: Scale,
-    category: "Beratung",
-    title: "Rechtsberatung Arbeitsrecht",
-    description: "Enge Zusammenarbeit mit spezialisierten Rechtsanwälten für arbeitsrechtliche Fragestellungen.",
+    logo: stiltzLogo,
+    name: "Benjamin Stiltz",
+    description: "Meister im Elektrohandwerk, BDSH geprüfter Sachverständiger",
+    link: "https://www.sv-benjamin-stiltz.de",
   },
   {
-    icon: GraduationCap,
-    category: "Bildung",
-    title: "Bildungsträger & IHK",
-    description: "Partnerschaft mit anerkannten Bildungsträgern für zertifizierte Aus- und Weiterbildungen.",
+    logo: arbeitsschutzUlmLogo,
+    name: "Florian Maier",
+    description: "Fachkraft für Arbeitssicherheit, Sicherheits- und Gesundheitsschutz-Koordinator",
+    link: "https://arbeitsschutz-ulm.de",
   },
   {
-    icon: Shield,
-    category: "Versicherung",
-    title: "Berufsgenossenschaften",
-    description: "Direkter Draht zu den Unfallversicherungsträgern für schnelle Abstimmungen.",
-  },
-  {
-    icon: Building2,
-    category: "Behörden",
-    title: "Gewerbeaufsicht",
-    description: "Gute Kontakte zu Aufsichtsbehörden für reibungslose Genehmigungsverfahren.",
-  },
-  {
-    icon: Users,
-    category: "Fachverbände",
-    title: "Branchenverbände",
-    description: "Mitgliedschaft in relevanten Fachverbänden für Wissensaustausch und Netzwerk.",
+    logo: simoneHoenleLogo,
+    name: "Simone Hönle",
+    description: "Diplom Psychologin und Coach",
+    link: null,
   },
 ];
 
-const benefits = [
-  {
-    title: "Alles aus einer Hand",
-    description: "Durch unser Netzwerk können wir Ihnen umfassende Lösungen bieten, auch über unsere Kernkompetenzen hinaus.",
-  },
-  {
-    title: "Qualitätsgarantie",
-    description: "Alle Partner sind sorgfältig ausgewählt und erfüllen unsere hohen Qualitätsstandards.",
-  },
-  {
-    title: "Kurze Wege",
-    description: "Direkte Kommunikation zwischen den Experten beschleunigt Prozesse und spart Zeit.",
-  },
-  {
-    title: "Aktuelles Wissen",
-    description: "Regelmäßiger Austausch im Netzwerk hält alle Beteiligten auf dem neuesten Stand.",
-  },
-];
+function useIntersectionObserver(ref: RefObject<HTMLElement | null>): boolean {
+  const [isIntersecting, setIsIntersecting] = useState(false);
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsIntersecting(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [ref]);
+
+  return isIntersecting;
+}
 
 export default function Network() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useIntersectionObserver(containerRef);
+
   return (
     <Layout>
       <section className="bg-gradient-to-b from-primary/5 to-background py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-4 md:px-6">
-          <div className="mx-auto max-w-3xl text-center">
+          <motion.div 
+            className="mx-auto max-w-3xl text-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             <div className="mb-4 inline-flex items-center gap-2 rounded-md bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
               <Handshake className="h-4 w-4" />
               Starke Partnerschaften
@@ -88,64 +88,57 @@ export default function Network() {
               für Arbeitssicherheit und Gesundheitsschutz. Profitieren Sie von unserem 
               gewachsenen Expertennetzwerk.
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24" ref={containerRef}>
         <div className="mx-auto max-w-6xl px-4 md:px-6">
-          <h2 className="mb-8 text-center text-3xl font-bold">Unsere Partner</h2>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <motion.h2 
+            className="mb-12 text-center text-3xl font-bold"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.5 }}
+          >
+            Unsere Partner
+          </motion.h2>
+          <div className="grid gap-8 md:grid-cols-2">
             {partners.map((partner, index) => (
-              <Card key={index} data-testid={`card-partner-${index}`}>
-                <CardContent className="p-6">
-                  <div className="mb-4 flex items-center gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                      <partner.icon className="h-6 w-6 text-primary" />
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Card className="h-full overflow-hidden hover-elevate" data-testid={`card-partner-${index}`}>
+                  <CardContent className="flex flex-col items-center p-8 text-center">
+                    <div className="mb-6 flex h-24 w-full items-center justify-center">
+                      <img 
+                        src={partner.logo} 
+                        alt={partner.name}
+                        className="max-h-full max-w-full object-contain"
+                        data-testid={`img-partner-${index}`}
+                      />
                     </div>
-                    <div>
-                      <p className="text-xs font-medium uppercase text-primary">{partner.category}</p>
-                      <h3 className="font-semibold">{partner.title}</h3>
-                    </div>
-                  </div>
-                  <p className="text-sm text-muted-foreground">{partner.description}</p>
-                </CardContent>
-              </Card>
+                    <h3 className="mb-2 text-xl font-semibold">{partner.name}</h3>
+                    <p className="mb-4 text-muted-foreground">{partner.description}</p>
+                    {partner.link && (
+                      <a 
+                        href={partner.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        data-testid={`link-partner-${index}`}
+                      >
+                        <Button variant="outline" size="sm">
+                          Website besuchen
+                          <ExternalLink className="ml-2 h-4 w-4" />
+                        </Button>
+                      </a>
+                    )}
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-muted/30 py-16 md:py-24">
-        <div className="mx-auto max-w-6xl px-4 md:px-6">
-          <div className="grid gap-12 lg:grid-cols-2">
-            <div>
-              <h2 className="mb-6 text-3xl font-bold">Vorteile unseres Netzwerks</h2>
-              <p className="mb-8 text-muted-foreground">
-                Unser Netzwerk ermöglicht es uns, Ihnen umfassende Dienstleistungen 
-                anzubieten und komplexe Anforderungen effizient zu erfüllen.
-              </p>
-              <div className="space-y-4">
-                {benefits.map((benefit, index) => (
-                  <div key={index} className="rounded-lg border bg-card p-4">
-                    <h3 className="mb-1 font-semibold">{benefit.title}</h3>
-                    <p className="text-sm text-muted-foreground">{benefit.description}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="flex items-center justify-center">
-              <Card className="w-full max-w-md">
-                <CardContent className="p-8 text-center">
-                  <NetworkIcon className="mx-auto mb-4 h-16 w-16 text-primary" />
-                  <h3 className="mb-4 text-2xl font-bold">Werden Sie Partner</h3>
-                  <p className="mb-6 text-muted-foreground">
-                    Sie sind Experte in einem komplementären Bereich und interessiert an 
-                    einer Zusammenarbeit? Wir freuen uns auf Ihre Kontaktaufnahme.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
           </div>
         </div>
       </section>

@@ -1,3 +1,5 @@
+import { useRef, useState, useEffect, type RefObject } from "react";
+import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -51,61 +53,104 @@ const services = [
   },
 ];
 
+function useIntersectionObserver(ref: RefObject<HTMLElement | null>): boolean {
+  const [isIntersecting, setIsIntersecting] = useState(false);
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsIntersecting(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [ref]);
+
+  return isIntersecting;
+}
+
 export function ServicesOverview() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useIntersectionObserver(containerRef);
+
   return (
-    <section className="bg-muted/30 py-16 md:py-24">
+    <section className="bg-muted/30 py-16 md:py-24" ref={containerRef}>
       <div className="mx-auto max-w-6xl px-4 md:px-6">
-        <div className="mb-12 text-center">
+        <motion.div 
+          className="mb-12 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.5 }}
+        >
           <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl" data-testid="text-services-title">
             Unsere Leistungen
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
             Umfassende Lösungen für die Arbeitssicherheit und den Gesundheitsschutz in Ihrem Unternehmen.
           </p>
-        </div>
+        </motion.div>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
-            <Card 
-              key={index} 
-              className="group flex flex-col overflow-hidden transition-all hover-elevate"
-              data-testid={`card-service-${index}`}
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="aspect-video overflow-hidden">
-                <img 
-                  src={service.image} 
-                  alt={service.title}
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  data-testid={`img-service-${index}`}
-                />
-              </div>
-              <CardHeader className="pb-2">
-                <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
-                  <service.icon className="h-5 w-5 text-primary" />
+              <Card 
+                className="group flex h-full flex-col overflow-hidden transition-all hover-elevate"
+                data-testid={`card-service-${index}`}
+              >
+                <div className="aspect-video overflow-hidden">
+                  <img 
+                    src={service.image} 
+                    alt={service.title}
+                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    data-testid={`img-service-${index}`}
+                  />
                 </div>
-                <CardTitle className="text-xl">{service.title}</CardTitle>
-                <CardDescription className="text-sm text-muted-foreground">
-                  {service.keywords}
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="flex flex-1 flex-col justify-between gap-4">
-                <p className="text-sm text-muted-foreground">{service.description}</p>
-                <Link href={service.href} data-testid={`link-service-${index}`}>
-                  <Button variant="ghost" className="w-full justify-between" data-testid={`button-service-${index}`}>
-                    Mehr erfahren
-                    <ArrowRight className="h-4 w-4" />
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
+                <CardHeader className="pb-2">
+                  <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+                    <service.icon className="h-5 w-5 text-primary" />
+                  </div>
+                  <CardTitle className="text-xl">{service.title}</CardTitle>
+                  <CardDescription className="text-sm text-muted-foreground">
+                    {service.keywords}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="flex flex-1 flex-col justify-between gap-4">
+                  <p className="text-sm text-muted-foreground">{service.description}</p>
+                  <Link href={service.href} data-testid={`link-service-${index}`}>
+                    <Button variant="ghost" className="w-full justify-between" data-testid={`button-service-${index}`}>
+                      Mehr erfahren
+                      <ArrowRight className="h-4 w-4" />
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
-        <div className="mt-12 text-center">
+        <motion.div 
+          className="mt-12 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+        >
           <Link href="/leistungen" data-testid="link-all-services">
             <Button size="lg" variant="outline" data-testid="button-all-services">
               Alle Leistungen ansehen
             </Button>
           </Link>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
