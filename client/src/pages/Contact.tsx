@@ -33,10 +33,10 @@ const contactInfo = [
 export default function Contact() {
   return (
     <Layout>
-      <section className="bg-gradient-to-b from-primary/5 to-background py-12 md:py-16">
+      <section className="bg-gradient-to-b from-primary/5 to-background py-8 md:py-12">
         <div className="mx-auto max-w-6xl px-4 md:px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl" data-testid="text-contact-title">
+            <h1 className="mb-2 text-4xl font-bold tracking-tight md:text-5xl" data-testid="text-contact-title">
               Kontakt
             </h1>
             <p className="text-lg text-muted-foreground">
@@ -47,7 +47,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="py-12 md:py-16">
+      <section className="py-8 md:py-12">
         <div className="mx-auto max-w-6xl px-4 md:px-6">
           <div className="grid gap-8 lg:grid-cols-3">
             <div className="lg:col-span-2">

@@ -110,15 +110,15 @@ export default function Services() {
 
   return (
     <Layout>
-      <section className="bg-gradient-to-b from-primary/5 to-background py-12 md:py-16">
+      <section className="bg-gradient-to-b from-primary/5 to-background py-8 md:py-12">
         <div className="mx-auto max-w-6xl px-4 md:px-6">
           <motion.div 
-            className="mb-12 text-center"
+            className="text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl" data-testid="text-services-page-title">
+            <h1 className="mb-2 text-4xl font-bold tracking-tight md:text-5xl" data-testid="text-services-page-title">
               Unsere Leistungen
             </h1>
             <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
@@ -129,7 +129,7 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="py-12 md:py-16" ref={containerRef}>
+      <section className="py-8 md:py-12" ref={containerRef}>
         <div className="mx-auto max-w-6xl px-4 md:px-6">
           <div className="space-y-12">
             {services.map((service, index) => (

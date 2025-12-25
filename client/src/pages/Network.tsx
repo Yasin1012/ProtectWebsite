@@ -68,7 +68,7 @@ export default function Network() {
 
   return (
     <Layout>
-      <section className="bg-gradient-to-b from-primary/5 to-background py-12 md:py-16">
+      <section className="bg-gradient-to-b from-primary/5 to-background py-8 md:py-12">
         <div className="mx-auto max-w-6xl px-4 md:px-6">
           <motion.div 
             className="mx-auto max-w-3xl text-center"
@@ -80,7 +80,7 @@ export default function Network() {
               <Handshake className="h-4 w-4" />
               Starke Partnerschaften
             </div>
-            <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl" data-testid="text-network-title">
+            <h1 className="mb-2 text-4xl font-bold tracking-tight md:text-5xl" data-testid="text-network-title">
               Unser Netzwerk
             </h1>
             <p className="text-lg text-muted-foreground">
@@ -92,10 +92,10 @@ export default function Network() {
         </div>
       </section>
 
-      <section className="py-12 md:py-16" ref={containerRef}>
+      <section className="py-8 md:py-12" ref={containerRef}>
         <div className="mx-auto max-w-6xl px-4 md:px-6">
           <motion.h2 
-            className="mb-12 text-center text-3xl font-bold"
+            className="mb-8 text-center text-3xl font-bold"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.5 }}
