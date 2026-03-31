@@ -98,12 +98,19 @@ export default function Fortbildung() {
                 abgestimmt. So stellen wir sicher, dass Ihre Mitarbeitenden nicht nur 
                 gesetzeskonform, sondern auch praxisnah und zielgerichtet geschult werden.
               </p>
-              <Link href="/kontakt" data-testid="link-fortbildung-cta">
-                <Button size="lg" data-testid="button-fortbildung-cta">
-                  Schulung anfragen
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/leistungen/fortbildung/buchen" data-testid="link-fortbildung-buchen">
+                  <Button size="lg" data-testid="button-fortbildung-buchen">
+                    Jetzt verbindlich anmelden
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+                <Link href="/kontakt" data-testid="link-fortbildung-cta">
+                  <Button size="lg" variant="outline" data-testid="button-fortbildung-cta">
+                    Schulung anfragen
+                  </Button>
+                </Link>
+              </div>
             </div>
             <div className="flex items-center justify-center">
               <div className="overflow-hidden rounded-lg">
@@ -211,9 +218,11 @@ export default function Fortbildung() {
         </div>
       </section>
 
-      <CTASection 
+      <CTASection
         title="Schulungstermine anfragen"
-        description="Wir erstellen Ihnen ein individuelles Schulungskonzept für Ihr Unternehmen."
+        description="Wir erstellen Ihnen ein individuelles Schulungskonzept für Ihr Unternehmen. Melden Sie sich jetzt verbindlich an oder kontaktieren Sie uns für eine unverbindliche Beratung."
+        bookingLink="/leistungen/fortbildung/buchen"
+        bookingLabel="Jetzt anmelden"
       />
     </Layout>
   );

@@ -7,12 +7,16 @@ interface CTASectionProps {
   title?: string;
   description?: string;
   showContactInfo?: boolean;
+  bookingLink?: string;
+  bookingLabel?: string;
 }
 
-export function CTASection({ 
+export function CTASection({
   title = "Bereit für mehr Sicherheit?",
   description = "Kontaktieren Sie uns für eine unverbindliche Beratung. Wir analysieren Ihre Anforderungen und erstellen ein maßgeschneidertes Angebot.",
-  showContactInfo = true
+  showContactInfo = true,
+  bookingLink,
+  bookingLabel = "Jetzt anmelden",
 }: CTASectionProps) {
   return (
     <section className="bg-muted/30 py-12 md:py-16">
@@ -26,10 +30,19 @@ export function CTASection({
               {description}
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+              {bookingLink && (
+                <Link href={bookingLink}>
+                  <Button size="lg" className="w-full sm:w-auto">
+                    {bookingLabel}
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              )}
               <Link href="/kontakt" data-testid="link-cta-contact">
-                <Button 
-                  size="lg" 
+                <Button
+                  size="lg"
                   className="w-full sm:w-auto"
+                  variant={bookingLink ? "outline" : "default"}
                   data-testid="button-cta-contact"
                 >
                   Jetzt Beratung anfragen

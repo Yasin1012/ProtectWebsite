@@ -3,11 +3,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { 
-  Shield, 
-  CheckCircle2, 
-  Phone, 
-  Award, 
-  Users, 
+  Shield,
+  CheckCircle2,
+  Phone,
+  Award,
   FileCheck,
   Scale,
   Clock
@@ -51,9 +50,9 @@ export default function Landing() {
             <Shield className="h-8 w-8 text-primary" />
             <span className="text-xl font-bold">Protect</span>
           </div>
-          <a href="tel:+4912345678900" className="flex items-center gap-2 text-sm font-medium">
+          <a href="tel:+4971414881321" className="flex items-center gap-2 text-sm font-medium">
             <Phone className="h-4 w-4" />
-            <span className="hidden sm:inline">+49 123 456 789 00</span>
+            <span className="hidden sm:inline">07141 4881321</span>
           </a>
         </div>
       </header>
@@ -76,8 +75,8 @@ export default function Landing() {
                   Arbeitssicherheit und Gesundheitsschutz.
                 </p>
                 <div className="flex flex-wrap gap-8">
-                  {stats.map((stat, index) => (
-                    <div key={index}>
+                  {stats.map((stat) => (
+                    <div key={stat.label}>
                       <div className="text-3xl font-bold text-primary">{stat.value}</div>
                       <div className="text-sm text-muted-foreground">{stat.label}</div>
                     </div>
@@ -105,8 +104,8 @@ export default function Landing() {
           <div className="mx-auto max-w-6xl px-4 md:px-6">
             <h2 className="mb-8 text-center text-3xl font-bold">Ihre Vorteile</h2>
             <div className="grid gap-6 md:grid-cols-2">
-              {benefits.map((benefit, index) => (
-                <Card key={index} data-testid={`card-landing-benefit-${index}`}>
+              {benefits.map((benefit) => (
+                <Card key={benefit.title} data-testid={`card-landing-benefit-${benefit.title}`}>
                   <CardContent className="flex items-start gap-4 p-6">
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
                       <benefit.icon className="h-6 w-6 text-primary" />

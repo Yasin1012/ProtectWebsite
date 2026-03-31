@@ -1,21 +1,54 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { AlertCircle } from "lucide-react";
+import { Link } from "wouter";
+import { Layout } from "@/components/layout/Layout";
+import { Button } from "@/components/ui/button";
+import { Home, Phone } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gray-50">
-      <Card className="w-full max-w-md mx-4">
-        <CardContent className="pt-6">
-          <div className="flex mb-4 gap-2">
-            <AlertCircle className="h-8 w-8 text-red-500" />
-            <h1 className="text-2xl font-bold text-gray-900">404 Page Not Found</h1>
-          </div>
-
-          <p className="mt-4 text-sm text-gray-600">
-            Did you forget to add the page to the router?
+    <Layout>
+      <section className="flex min-h-[60vh] items-center justify-center py-16">
+        <div className="mx-auto max-w-xl px-4 text-center">
+          <p className="mb-2 text-8xl font-bold text-primary/20">404</p>
+          <h1 className="mb-3 text-3xl font-bold tracking-tight">
+            Seite nicht gefunden
+          </h1>
+          <p className="mb-8 text-muted-foreground">
+            Die von Ihnen gesuchte Seite existiert nicht oder wurde verschoben.
+            Bitte nutzen Sie die Navigation oder kehren Sie zur Startseite zurück.
           </p>
-        </CardContent>
-      </Card>
-    </div>
+          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Link href="/">
+              <Button size="lg">
+                <Home className="mr-2 h-4 w-4" />
+                Zur Startseite
+              </Button>
+            </Link>
+            <Link href="/kontakt">
+              <Button size="lg" variant="outline">
+                <Phone className="mr-2 h-4 w-4" />
+                Kontakt aufnehmen
+              </Button>
+            </Link>
+          </div>
+          <div className="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
+            <Link href="/leistungen" className="hover:text-foreground hover:underline">
+              Leistungen
+            </Link>
+            <Link href="/leistungen/fortbildung" className="hover:text-foreground hover:underline">
+              Schulungen
+            </Link>
+            <Link href="/team" className="hover:text-foreground hover:underline">
+              Team
+            </Link>
+            <Link href="/netzwerk" className="hover:text-foreground hover:underline">
+              Netzwerk
+            </Link>
+            <Link href="/faq" className="hover:text-foreground hover:underline">
+              FAQ
+            </Link>
+          </div>
+        </div>
+      </section>
+    </Layout>
   );
 }

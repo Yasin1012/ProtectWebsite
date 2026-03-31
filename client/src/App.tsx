@@ -10,6 +10,7 @@ import Services from "@/pages/Services";
 import DGUVV2 from "@/pages/services/DGUVV2";
 import Betriebsmittelpruefung from "@/pages/services/Betriebsmittelpruefung";
 import Fortbildung from "@/pages/services/Fortbildung";
+import KursBuchen from "@/pages/services/KursBuchen";
 import Brandschutz from "@/pages/services/Brandschutz";
 import ElektrischePruefung from "@/pages/services/ElektrischePruefung";
 import Team from "@/pages/Team";
@@ -18,6 +19,7 @@ import Contact from "@/pages/Contact";
 import Landing from "@/pages/Landing";
 import Impressum from "@/pages/Impressum";
 import Datenschutz from "@/pages/Datenschutz";
+import FAQ from "@/pages/FAQ";
 
 function Router() {
   return (
@@ -27,11 +29,13 @@ function Router() {
       <Route path="/leistungen/dguv-v2" component={DGUVV2} />
       <Route path="/leistungen/betriebsmittelpruefung" component={Betriebsmittelpruefung} />
       <Route path="/leistungen/fortbildung" component={Fortbildung} />
+      <Route path="/leistungen/fortbildung/buchen" component={KursBuchen} />
       <Route path="/leistungen/brandschutz" component={Brandschutz} />
       <Route path="/leistungen/elektrische-pruefung" component={ElektrischePruefung} />
       <Route path="/team" component={Team} />
       <Route path="/netzwerk" component={Network} />
       <Route path="/kontakt" component={Contact} />
+      <Route path="/faq" component={FAQ} />
       <Route path="/landing" component={Landing} />
       <Route path="/impressum" component={Impressum} />
       <Route path="/datenschutz" component={Datenschutz} />
