@@ -95,4 +95,9 @@ async function createStorage(): Promise<IStorage> {
   return new MemStorage();
 }
 
-export const storage = await createStorage();
+export let storage: IStorage = new MemStorage();
+
+export async function initializeStorage(): Promise<IStorage> {
+  storage = await createStorage();
+  return storage;
+}
