@@ -18,6 +18,8 @@ export class MemStorage implements IStorage {
     this.contactRequests = new Map();
   }
 
+
+  
   async getUser(id: string): Promise<User | undefined> {
     return this.users.get(id);
   }
